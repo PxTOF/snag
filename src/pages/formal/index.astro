@@ -1,188 +1,166 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import FormalSpaceScene from "../../components/formal/FormalSpaceScene.jsx";
 import profile from "../../data/profile.json";
 import cases from "../../data/cases.json";
 import reels from "../../data/reels.json";
 
 const featuredCases = cases.slice(0, 4);
+const mailHref = `mailto:${profile.email}?subject=Brand%20%2F%20growth%20role%20for%20Pushkar`;
+const pitchCopy = `${profile.name}: ${profile.pitch}`;
 ---
 
 <BaseLayout
-  title="Pushkar Vashisht - Formal Dossier"
-  description="An editorial hiring dossier for Pushkar Vashisht: brand systems, creator growth, content machines and proof-led operating."
+  title={`${profile.name} - High-Tech Formal Dossier`}
+  description={`${profile.headline} ${profile.subheadline}`}
+  canonical="/formal"
+  image={profile.profileImage}
+  pageClass="space-page"
 >
-  <main class="dossier formal-dossier" data-dossier>
-    <div class="redline-field" aria-hidden="true">
-      <span>brand</span>
-      <span>creator</span>
-      <span>growth</span>
-      <span>proof</span>
+  <main class="space-dossier" data-space-dossier>
+    <FormalSpaceScene client:load />
+
+    <div class="space-preloader" aria-hidden="true">
+      <div>
+        <span>PV / dossier boot</span>
+        <strong>calibrating proof signal</strong>
+        <i></i>
+      </div>
     </div>
-    <div class="dossier-atmosphere" aria-hidden="true">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div class="dossier-spine" aria-hidden="true">
-      <span>Selected proof</span>
-      <b>PV / 2050</b>
-    </div>
-    <header class="dossier-nav">
-      <a class="brand-lockup" href="/">
-        <img src={profile.profileImage} alt="Pushkar Vashisht" />
+
+    <header class="space-nav" data-space-reveal>
+      <a class="space-brand" href="/" aria-label="Back to mode selector">
+        <span class="space-brand-mark">PV</span>
         <span>
           <b>{profile.name}</b>
-          <small>Brand systems / creator growth</small>
+          <small>Proof-led creative operator</small>
         </span>
       </a>
       <nav aria-label="Formal dossier navigation">
+        <a href="#cases">Cases</a>
+        <a href="#reels">Reels</a>
         <a href="/xp">Fun XP</a>
-        <a href="/contact">Contact</a>
-        <a class="nav-cta" href={profile.cvUrl} download>Download CV</a>
+        <a class="space-nav-cta" href={profile.cvUrl} download>Download CV</a>
       </nav>
     </header>
 
-    <section class="dossier-hero">
-      <div class="hero-copy">
-        <div class="hero-meta">
-          <span>Formal dossier</span>
-          <span>Brand / growth / creator economy</span>
-          <span>Available for sharp rooms</span>
-        </div>
-        <p class="eyebrow">Proof-led creative operator</p>
-        <h1 class="hero-title">
-          <span>Pushkar</span>
-          <span>Vashisht</span>
-        </h1>
-        <p class="hero-claim">{profile.headline}</p>
-        <p class="hero-lede">{profile.subheadline}</p>
-        <div class="hero-actions">
-          <a href="/contact">Hire / contact</a>
-          <a href="#cases">Read the proof</a>
-          <a href="/xp">Open Fun XP</a>
-        </div>
-        <div class="hero-proof-rail" aria-label="Fast proof">
-          {profile.stats.slice(0, 3).map((stat) => (
-            <span>
-              <b>{stat.value}</b>
-              <small>{stat.label}</small>
-            </span>
-          ))}
-        </div>
-        <div class="contact-chips" aria-label="Direct contact">
-          <a href={`mailto:${profile.email}`}>{profile.email}</a>
-          <a href={`tel:${profile.phone.replaceAll(" ", "")}`}>{profile.phone}</a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+    <section class="space-hero" aria-labelledby="formal-title">
+      <div class="space-hero-copy" data-space-reveal>
+        <p class="space-kicker">Formal dossier / brand growth orbit</p>
+        <h1 id="formal-title">{profile.headline}</h1>
+        <p class="space-hero-lede">{profile.subheadline}</p>
+        <div class="space-hero-actions" aria-label="Primary actions">
+          <a class="space-primary" href={mailHref}>Start the conversation</a>
+          <a href="#cases">See proof</a>
+          <button type="button" data-copy-pitch={pitchCopy}>Copy pitch</button>
         </div>
       </div>
-      <aside class="signal-card">
-        <span class="signal-stamp">proof<br />inside</span>
-        <img src={profile.profileImage} alt="Pushkar smiling in a postage-stamp styled portrait" />
-        <div>
-          <p class="eyebrow">Current signal</p>
-          <h2>Brand worlds, creator rooms, content machines.</h2>
+
+      <aside class="space-id" aria-label="Candidate identity" data-space-reveal>
+        <div class="space-id-frame">
+          <img src={profile.profileImage} alt="Pushkar Vashisht" />
+          <div class="space-id-scan"></div>
+        </div>
+        <div class="space-id-meta">
+          <span>Candidate signal</span>
+          <b>{profile.name}</b>
           <p>{profile.pitch}</p>
         </div>
       </aside>
     </section>
 
-    <section class="dossier-marquee" aria-label="Operating edge">
-      <div>
-        <span>creator supply</span>
-        <span>paid activations</span>
-        <span>brand rooms</span>
-        <span>offline to online</span>
-        <span>content machines</span>
-        <span>taste with receipts</span>
-      </div>
-    </section>
-
-    <section class="stat-strip" aria-label="Proof numbers">
-      {profile.stats.map((stat) => (
-        <div>
-          <b>{stat.value}</b>
-          <span>{stat.label}</span>
-        </div>
+    <section class="space-proof-grid" aria-label="Proof stats">
+      {profile.stats.map((stat, index) => (
+        <article class="space-stat" data-space-reveal style={`--delay: ${index * 80}ms`}>
+          <span>{String(index + 1).padStart(2, "0")}</span>
+          <strong>{stat.value}</strong>
+          <p>{stat.label}</p>
+        </article>
       ))}
     </section>
 
-    <section class="sticky-story" aria-label="Why hire Pushkar">
-      <div class="sticky-intro">
-        <p class="eyebrow">Why this works</p>
-        <h2>Not a resume. A case for why the room changes when he enters it.</h2>
-        <p>Scroll through the operating logic: culture first, proof always, taste visible in the execution.</p>
+    <section class="space-orbit-story" aria-labelledby="useful-title">
+      <div class="space-sticky-copy" data-space-reveal>
+        <p class="space-kicker">What he is useful for</p>
+        <h2 id="useful-title">Not a deck-maker. Not a caption machine. A taste-led operator who can make growth look alive.</h2>
       </div>
-      <div class="sticky-panels">
-        <article class="sticky-panel" data-reveal>
-          <span class="panel-number">01</span>
-          <p class="eyebrow">What he is useful for</p>
-          <h2>When the brand has a pulse but no operating system.</h2>
-          <p>Pushkar is strongest where brand, creators, events, content and growth all touch each other. He can make the work feel culturally alive without losing the proof that makes HR and founders pay attention.</p>
-        </article>
-        <article class="sticky-panel panel-red" data-reveal>
-          <span class="panel-number">02</span>
-          <p class="eyebrow">Best fit</p>
-          <h2>Internet-native brand and growth rooms.</h2>
-          <ul>
-            {profile.fit.map((item) => <li>{item}</li>)}
-          </ul>
-        </article>
-        <article class="sticky-panel panel-cream" data-reveal>
-          <span class="panel-number">03</span>
-          <p class="eyebrow">Why it pulls</p>
-          <h2>The numbers are there. The taste is not outsourced.</h2>
-          <p>This dossier is built to show both sides: the operator who can move activations and rooms, and the creative brain that knows why generic marketing dies on arrival.</p>
+      <div class="space-use-list">
+        {profile.fit.map((fit, index) => (
+          <article class="space-use-card" data-space-reveal style={`--delay: ${index * 90}ms`}>
+            <span>0{index + 1}</span>
+            <p>{fit}</p>
+          </article>
+        ))}
+        <article class="space-use-card space-use-card-wide" data-space-reveal>
+          <span>field note</span>
+          <p>Best used when the brief is still messy, the audience has taste, and the work has to become visible fast without turning fake.</p>
         </article>
       </div>
     </section>
 
-    <section id="cases" class="case-section" data-reveal>
-      <div class="section-head">
-        <p class="eyebrow">Case dossiers</p>
-        <h2>Proof that has a point of view.</h2>
+    <section id="cases" class="space-section case-section" aria-labelledby="cases-title">
+      <div class="space-section-head" data-space-reveal>
+        <p class="space-kicker">Proof that has a point of view.</p>
+        <h2 id="cases-title">Case files built like mission logs.</h2>
+        <p>Each one carries the useful recruiter question: what was unclear, what moved, and why the proof matters.</p>
       </div>
-      <div class="case-grid">
-        {cases.map((item, index) => (
-          <a class="case-card" href={`/formal/cases/${item.id}`}>
-            <i>{String(index + 1).padStart(2, "0")}</i>
-            <span>{item.year}</span>
-            <small>{item.role}</small>
-            <h3>{item.title}</h3>
-            <p>{item.summary}</p>
-            <b>{item.metric}</b>
-          </a>
+
+      <div class="space-case-scroll">
+        {featuredCases.map((item, index) => (
+          <article class="space-case-card" data-space-reveal style={`--delay: ${index * 80}ms`}>
+            <a href={`/formal/cases/${item.id}`} aria-label={`Open ${item.title} case study`}>
+              <span class="space-case-index">{String(index + 1).padStart(2, "0")}</span>
+              <div>
+                <p>{item.year} / {item.role}</p>
+                <h3>{item.title}</h3>
+                <strong>{item.metric}</strong>
+              </div>
+              <p>{item.summary}</p>
+              <div class="space-tags">
+                {item.tags.map((tag) => <span>{tag}</span>)}
+              </div>
+            </a>
+          </article>
         ))}
       </div>
     </section>
 
-    <section class="feature-case" data-reveal>
-      <div>
-        <p class="eyebrow">HR shortcut</p>
-        <h2>If you only read four, read these.</h2>
+    <section class="space-shortlist" aria-labelledby="shortlist-title">
+      <div data-space-reveal>
+        <p class="space-kicker">Signal stack</p>
+        <h2 id="shortlist-title">Why this dossier should stay in the tab.</h2>
       </div>
-      <div class="feature-list">
-        {featuredCases.map((item) => (
-          <a href={`/formal/cases/${item.id}`}>
+      <div class="space-signal-grid">
+        {cases.map((item, index) => (
+          <a class="space-signal" href={`/formal/cases/${item.id}`} data-space-reveal style={`--delay: ${(index % 4) * 70}ms`}>
             <span>{item.metric}</span>
             <b>{item.title}</b>
-            <small>{item.role}</small>
+            <small>{item.toneLine}</small>
           </a>
         ))}
       </div>
     </section>
 
-    <section class="reel-section" data-reveal>
-      <div class="section-head">
-        <p class="eyebrow">Screenings</p>
-        <h2>Embedded work. No fake play layer.</h2>
+    <section id="reels" class="space-section reel-section" aria-labelledby="reels-title">
+      <div class="space-section-head" data-space-reveal>
+        <p class="space-kicker">Embedded proof</p>
+        <h2 id="reels-title">Direct work samples. No fake play layer.</h2>
+        <p>Instagram reels stay vertical because they were made for a 1080x1920 world. The YouTube proof keeps its native player too.</p>
       </div>
-      <div class="reel-grid">
-        {reels.map((reel) => (
-          <article class="reel-tile">
-            <div class="reel-frame">
-              <iframe src={reel.embedUrl} title={reel.title} loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
+
+      <div class="space-reel-grid">
+        {reels.map((reel, index) => (
+          <article class="space-reel-card" data-space-reveal style={`--delay: ${(index % 3) * 90}ms`}>
+            <div class="space-reel-frame">
+              <iframe
+                src={reel.embedUrl}
+                title={reel.title}
+                loading="lazy"
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
             </div>
-            <div>
+            <div class="space-reel-copy">
               <span>{reel.category} / {reel.platform}</span>
               <h3>{reel.title}</h3>
               <p>{reel.proof}</p>
@@ -193,37 +171,56 @@ const featuredCases = cases.slice(0, 4);
       </div>
     </section>
 
-    <section class="closing-cta" data-reveal>
-      <p class="eyebrow">Close the loop</p>
-      <h2>Useful in the room where the idea has to become output.</h2>
+    <section class="space-contact-band" aria-labelledby="contact-title" data-space-reveal>
       <div>
-        <a href={`mailto:${profile.email}`}>Email Pushkar</a>
+        <p class="space-kicker">Hiring channel</p>
+        <h2 id="contact-title">Bring the operator into the room before the campaign gets polite.</h2>
+      </div>
+      <div class="space-contact-actions">
+        <a href={mailHref}>{profile.email}</a>
         <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href={profile.instagram} target="_blank" rel="noreferrer">Instagram</a>
         <a href={profile.cvUrl} download>Download CV</a>
       </div>
     </section>
   </main>
 
-  <script>
-    const dossier = document.querySelector("[data-dossier]");
+  <script is:inline>
+    const dossier = document.querySelector("[data-space-dossier]");
+    const revealItems = document.querySelectorAll("[data-space-reveal]");
 
     if (dossier) {
-      const setPointer = (event) => {
-        const rect = dossier.getBoundingClientRect();
-        dossier.style.setProperty("--spot-x", `${event.clientX - rect.left}px`);
-        dossier.style.setProperty("--spot-y", `${event.clientY - rect.top}px`);
-      };
+      window.addEventListener("pointermove", (event) => {
+        dossier.style.setProperty("--cursor-x", `${(event.clientX / window.innerWidth) * 100}%`);
+        dossier.style.setProperty("--cursor-y", `${(event.clientY / window.innerHeight) * 100}%`);
+      }, { passive: true });
 
-      window.addEventListener("pointermove", setPointer, { passive: true });
-
-      const revealItems = document.querySelectorAll("[data-reveal]");
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("is-visible");
-        });
-      }, { threshold: 0.16 });
-
-      revealItems.forEach((item) => observer.observe(item));
+      const finishBoot = () => dossier.classList.add("is-loaded");
+      window.addEventListener("load", finishBoot, { once: true });
+      window.setTimeout(finishBoot, 1300);
     }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("is-visible");
+      });
+    }, { threshold: 0.16 });
+
+    revealItems.forEach((item) => observer.observe(item));
+
+    document.querySelectorAll("[data-copy-pitch]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const original = button.textContent;
+        try {
+          await navigator.clipboard.writeText(button.dataset.copyPitch || "");
+          button.textContent = "Pitch copied";
+        } catch {
+          button.textContent = "Copy failed";
+        }
+        window.setTimeout(() => {
+          button.textContent = original;
+        }, 1600);
+      });
+    });
   </script>
 </BaseLayout>
