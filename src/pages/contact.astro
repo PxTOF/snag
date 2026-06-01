@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import profile from "../data/profile.json";
+---
+
+<BaseLayout
+  title="Contact Pushkar Vashisht"
+  description="Contact Pushkar Vashisht for brand, creator growth, content systems and internet-native growth roles."
+>
+  <main class="route-shell contact-page">
+    <a class="back-link" href="/formal">Back to dossier</a>
+    <section class="contact-panel">
+      <p class="eyebrow">Contact route</p>
+      <h1>Bring him into the room where taste has to ship.</h1>
+      <p>{profile.subheadline}</p>
+      <div class="contact-actions">
+        <a href={`mailto:${profile.email}`}>{profile.email}</a>
+        <a href={`tel:${profile.phone.replaceAll(" ", "")}`}>{profile.phone}</a>
+        <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href={profile.cvUrl} download>Download CV</a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

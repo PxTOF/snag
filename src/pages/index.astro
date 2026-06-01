@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import profile from "../data/profile.json";
+---
+
+<BaseLayout
+  title="Pushkar Vashisht - Choose the Dossier or Fun XP"
+  description="Choose between Pushkar Vashisht's premium formal dossier and an interactive Windows XP-inspired portfolio."
+>
+  <main class="route-shell selector-shell">
+    <section class="selector-hero">
+      <p class="eyebrow">Pick your route</p>
+      <h1>Same work. Two ways to read it.</h1>
+      <p class="selector-copy">
+        HR gets the sharp dossier. Curious people get the XP machine. Both lead to the same proof:
+        brand worlds, creator campaigns and content systems built under pressure.
+      </p>
+    </section>
+
+    <section class="mode-grid" aria-label="Portfolio modes">
+      <a class="mode-card mode-card-dark" href="/formal">
+        <span class="mode-icon">DD</span>
+        <span class="mode-kicker">Formal Dossier</span>
+        <h2>Recruiter-grade proof, edited like a magazine.</h2>
+        <p>{profile.stats[0].value} creators, {profile.stats[1].value} activations, {profile.stats[2].value} startups, and case notes that explain the operating taste behind the numbers.</p>
+        <span class="mode-action">Open the dossier</span>
+      </a>
+
+      <a class="mode-card mode-card-light" href="/xp">
+        <span class="mode-icon">XP</span>
+        <span class="mode-kicker">Fun XP OS</span>
+        <h2>The same portfolio disguised as a desktop you can poke.</h2>
+        <p>Guide notes, case folders, reel player, paint, games, control panel, command prompt and one button with very clear consequences.</p>
+        <span class="mode-action">Boot the machine</span>
+      </a>
+    </section>
+  </main>
+</BaseLayout>

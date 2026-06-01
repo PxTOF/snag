@@ -370,15 +370,17 @@ const xpCss = `
 .formal-photo-card{align-self:start}
 `;
 
-export default function PushkarDualPortfolioCorrected() {
-  const [screen, setScreen] = useState("gate");
+export default function XPExperience() {
+  const [screen, setScreen] = useState("matrix");
+  const goHome = () => { window.location.href = "/"; };
+  const goFormal = () => { window.location.href = "/formal"; };
   return <AnimatePresence mode="wait">
     {screen === "gate" && <motion.div key="gate" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><ModeGate startXP={()=>setScreen("matrix")} startFormal={()=>setScreen("formalboot")}/></motion.div>}
     {screen === "matrix" && <motion.div key="matrix"><MatrixBoot onDone={()=>setScreen("xpboot")}/></motion.div>}
     {screen === "xpboot" && <motion.div key="xpboot"><XPBoot onDone={()=>setScreen("welcome")}/></motion.div>}
-    {screen === "welcome" && <motion.div key="welcome"><XPWelcome onLogin={()=>setScreen("desktop")} goGate={()=>setScreen("gate")}/></motion.div>}
-    {screen === "desktop" && <motion.div key="desktop"><XPDesktop goGate={()=>setScreen("gate")} openFormal={()=>setScreen("formalboot")}/></motion.div>}
-    {screen === "formalboot" && <motion.div key="formalboot"><FormalBoot onDone={()=>setScreen("formal")}/></motion.div>}
-    {screen === "formal" && <motion.div key="formal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><FormalDossier goGate={()=>setScreen("gate")}/></motion.div>}
+    {screen === "welcome" && <motion.div key="welcome"><XPWelcome onLogin={()=>setScreen("desktop")} goGate={goHome}/></motion.div>}
+    {screen === "desktop" && <motion.div key="desktop"><XPDesktop goGate={goHome} openFormal={goFormal}/></motion.div>}
+    {screen === "formalboot" && <motion.div key="formalboot"><FormalBoot onDone={goFormal}/></motion.div>}
+    {screen === "formal" && <motion.div key="formal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><FormalDossier goGate={goHome}/></motion.div>}
   </AnimatePresence>;
 }

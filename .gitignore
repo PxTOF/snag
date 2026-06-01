@@ -6,3 +6,5 @@ dist/
 smoke-report.json
 playwright-report/
 test-results/
+.vercel
+.astro/

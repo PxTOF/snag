@@ -1,0 +1,62 @@
+[
+  {
+    "id": "rawcast",
+    "title": "Rawcast Podcast",
+    "brand": "Seekhobecho / Rawcast",
+    "platform": "YouTube",
+    "embedUrl": "https://www.youtube.com/embed/o0WCff2O4hY?si=sz8GyfMNhXWpNNzF",
+    "openUrl": "https://www.youtube.com/watch?v=o0WCff2O4hY",
+    "proof": "Media vertical + long-form format",
+    "category": "Media"
+  },
+  {
+    "id": "barber",
+    "title": "Barber Syndicate Reel",
+    "brand": "Barber Syndicate",
+    "platform": "Instagram",
+    "embedUrl": "https://www.instagram.com/reel/DWtbWwSyHN-/embed/captioned/",
+    "openUrl": "https://www.instagram.com/reel/DWtbWwSyHN-/",
+    "proof": "Salon category content + brand-in-motion",
+    "category": "Beauty"
+  },
+  {
+    "id": "myartist",
+    "title": "My Artist Reel",
+    "brand": "My Artist",
+    "platform": "Instagram",
+    "embedUrl": "https://www.instagram.com/reel/DWWQRk3JVjU/embed/captioned/",
+    "openUrl": "https://www.instagram.com/reel/DWWQRk3JVjU/",
+    "proof": "Beauty product content + brand world",
+    "category": "Beauty"
+  },
+  {
+    "id": "depano",
+    "title": "Depano Reel",
+    "brand": "Depano",
+    "platform": "Instagram",
+    "embedUrl": "https://www.instagram.com/reel/DXMU2tjCKHd/embed/captioned/",
+    "openUrl": "https://www.instagram.com/reel/DXMU2tjCKHd/",
+    "proof": "Beauty/salon storytelling",
+    "category": "Beauty"
+  },
+  {
+    "id": "burger",
+    "title": "Burger Bae Collab",
+    "brand": "Burger Bae",
+    "platform": "Instagram",
+    "embedUrl": "https://www.instagram.com/reel/DLB_j8-BLej/embed/captioned/",
+    "openUrl": "https://www.instagram.com/reel/DLB_j8-BLej/",
+    "proof": "Creator-led streetwear growth",
+    "category": "Fashion"
+  },
+  {
+    "id": "baecave",
+    "title": "Baecave Room",
+    "brand": "Baecave x Radisson",
+    "platform": "Instagram",
+    "embedUrl": "https://www.instagram.com/reel/DJhSzl2ToSx/embed/captioned/",
+    "openUrl": "https://www.instagram.com/reel/DJhSzl2ToSx/",
+    "proof": "Creator-room experience proof",
+    "category": "Events"
+  }
+]

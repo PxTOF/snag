@@ -1,0 +1,104 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import profile from "../../../data/profile.json";
+import cases from "../../../data/cases.json";
+import reels from "../../../data/reels.json";
+
+export function getStaticPaths() {
+  return cases.map((item) => ({
+    params: { id: item.id },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+const media = reels.filter((reel) => item.featuredMedia?.includes(reel.id));
+---
+
+<BaseLayout
+  title={`${item.title} - Pushkar Vashisht Case Dossier`}
+  description={`${item.summary} ${item.metric}.`}
+  canonical={`/formal/cases/${item.id}`}
+>
+  <main class="dossier case-detail-page">
+    <header class="dossier-nav">
+      <a class="brand-lockup" href="/formal">
+        <img src={profile.profileImage} alt="Pushkar Vashisht" />
+        <span>
+          <b>{profile.name}</b>
+          <small>Back to formal dossier</small>
+        </span>
+      </a>
+      <nav aria-label="Case navigation">
+        <a href="/formal">Dossier</a>
+        <a href="/xp">Fun XP</a>
+        <a class="nav-cta" href="/contact">Contact</a>
+      </nav>
+    </header>
+
+    <article class="case-hero">
+      <p class="eyebrow">{item.year}</p>
+      <h1>{item.title}</h1>
+      <p>{item.summary}</p>
+      <div class="case-meta">
+        <span>{item.role}</span>
+        <b>{item.metric}</b>
+      </div>
+    </article>
+
+    <section class="case-body">
+      <div>
+        <p class="eyebrow">Problem</p>
+        <h2>What had to move</h2>
+        <p>{item.problem}</p>
+      </div>
+      <div>
+        <p class="eyebrow">Moves</p>
+        <h2>What Pushkar did</h2>
+        <ul>
+          {item.moves.map((move) => <li>{move}</li>)}
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Outcomes</p>
+        <h2>Why it matters</h2>
+        <ul>
+          {item.outcomes.map((outcome) => <li>{outcome}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="proof-panel">
+      <p class="eyebrow">Proof note</p>
+      <h2>{item.toneLine}</h2>
+      <p>{item.proof}</p>
+      <div>
+        {item.tags.map((tag) => <span>{tag}</span>)}
+      </div>
+    </section>
+
+    {media.length > 0 && (
+      <section class="reel-section">
+        <div class="section-head">
+          <p class="eyebrow">Related work</p>
+          <h2>Media attached to this case.</h2>
+        </div>
+        <div class="reel-grid">
+          {media.map((reel) => (
+            <article class="reel-tile">
+              <div class="reel-frame">
+                <iframe src={reel.embedUrl} title={reel.title} loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+              <div>
+                <span>{reel.category} / {reel.platform}</span>
+                <h3>{reel.title}</h3>
+                <p>{reel.proof}</p>
+                <a href={reel.openUrl} target="_blank" rel="noreferrer">Open original</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+  </main>
+</BaseLayout>

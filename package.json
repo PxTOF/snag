@@ -4,21 +4,21 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --host 127.0.0.1",
-    "build": "vite build",
-    "preview": "vite preview --host 127.0.0.1",
+    "dev": "astro dev --host 127.0.0.1 --port 4173",
+    "build": "astro build",
+    "preview": "astro preview --host 127.0.0.1",
     "test:smoke": "node scripts/exhaustive-smoke.mjs"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "latest",
+    "@astrojs/react": "^5.0.6",
+    "astro": "^6.4.2",
     "autoprefixer": "latest",
     "framer-motion": "latest",
     "lucide-react": "latest",
     "postcss": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "tailwindcss": "^3.4.17",
-    "vite": "latest"
+    "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
     "playwright": "^1.60.0"

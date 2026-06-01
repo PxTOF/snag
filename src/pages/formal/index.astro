@@ -1,0 +1,150 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import profile from "../../data/profile.json";
+import cases from "../../data/cases.json";
+import reels from "../../data/reels.json";
+
+const featuredCases = cases.slice(0, 4);
+---
+
+<BaseLayout
+  title="Pushkar Vashisht - Formal Dossier"
+  description="An editorial hiring dossier for Pushkar Vashisht: brand systems, creator growth, content machines and proof-led operating."
+>
+  <main class="dossier">
+    <header class="dossier-nav">
+      <a class="brand-lockup" href="/">
+        <img src={profile.profileImage} alt="Pushkar Vashisht" />
+        <span>
+          <b>{profile.name}</b>
+          <small>Brand systems / creator growth</small>
+        </span>
+      </a>
+      <nav aria-label="Formal dossier navigation">
+        <a href="/xp">Fun XP</a>
+        <a href="/contact">Contact</a>
+        <a class="nav-cta" href={profile.cvUrl} download>Download CV</a>
+      </nav>
+    </header>
+
+    <section class="dossier-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Proof-led creative operator</p>
+        <h1>{profile.headline}</h1>
+        <p class="hero-lede">{profile.subheadline}</p>
+        <div class="hero-actions">
+          <a href="/contact">Hire / contact</a>
+          <a href="#cases">Read the proof</a>
+          <a href="/xp">Open Fun XP</a>
+        </div>
+        <div class="contact-chips" aria-label="Direct contact">
+          <a href={`mailto:${profile.email}`}>{profile.email}</a>
+          <a href={`tel:${profile.phone.replaceAll(" ", "")}`}>{profile.phone}</a>
+          <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+      <aside class="signal-card">
+        <img src={profile.profileImage} alt="Pushkar smiling in a postage-stamp styled portrait" />
+        <div>
+          <p class="eyebrow">Current signal</p>
+          <h2>Brand worlds, creator rooms, content machines.</h2>
+          <p>{profile.pitch}</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="stat-strip" aria-label="Proof numbers">
+      {profile.stats.map((stat) => (
+        <div>
+          <b>{stat.value}</b>
+          <span>{stat.label}</span>
+        </div>
+      ))}
+    </section>
+
+    <section class="editorial-grid">
+      <article>
+        <p class="eyebrow">What he is useful for</p>
+        <h2>When the brand has a pulse but no operating system.</h2>
+        <p>Pushkar is strongest where brand, creators, events, content and growth all touch each other. He can make the work feel culturally alive without losing the proof that makes HR and founders pay attention.</p>
+      </article>
+      <article>
+        <p class="eyebrow">Best fit</p>
+        <h2>Internet-native brand and growth rooms.</h2>
+        <ul>
+          {profile.fit.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+      <article>
+        <p class="eyebrow">Why it pulls</p>
+        <h2>The numbers are there. The taste is not outsourced.</h2>
+        <p>This dossier is built to show both sides: the operator who can move activations and rooms, and the creative brain that knows why generic marketing dies on arrival.</p>
+      </article>
+    </section>
+
+    <section id="cases" class="case-section">
+      <div class="section-head">
+        <p class="eyebrow">Case dossiers</p>
+        <h2>Proof that has a point of view.</h2>
+      </div>
+      <div class="case-grid">
+        {cases.map((item) => (
+          <a class="case-card" href={`/formal/cases/${item.id}`}>
+            <span>{item.year}</span>
+            <h3>{item.title}</h3>
+            <p>{item.summary}</p>
+            <b>{item.metric}</b>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="feature-case">
+      <div>
+        <p class="eyebrow">HR shortcut</p>
+        <h2>If you only read four, read these.</h2>
+      </div>
+      <div class="feature-list">
+        {featuredCases.map((item) => (
+          <a href={`/formal/cases/${item.id}`}>
+            <span>{item.metric}</span>
+            <b>{item.title}</b>
+            <small>{item.role}</small>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="reel-section">
+      <div class="section-head">
+        <p class="eyebrow">Screenings</p>
+        <h2>Embedded work. No fake play layer.</h2>
+      </div>
+      <div class="reel-grid">
+        {reels.map((reel) => (
+          <article class="reel-tile">
+            <div class="reel-frame">
+              <iframe src={reel.embedUrl} title={reel.title} loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div>
+              <span>{reel.category} / {reel.platform}</span>
+              <h3>{reel.title}</h3>
+              <p>{reel.proof}</p>
+              <a href={reel.openUrl} target="_blank" rel="noreferrer">Open original</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="closing-cta">
+      <p class="eyebrow">Close the loop</p>
+      <h2>Useful in the room where the idea has to become output.</h2>
+      <div>
+        <a href={`mailto:${profile.email}`}>Email Pushkar</a>
+        <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href={profile.cvUrl} download>Download CV</a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

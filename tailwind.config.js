@@ -1,8 +1,6 @@
 export default {
   content: [
-    "./index.html",
-    "./src/**/*.{js,jsx}",
-    "/Users/drishventure/Downloads/pushkar_2050_dual_portfolio_prototype.jsx"
+    "./src/**/*.{astro,js,jsx,json}"
   ],
   theme: {
     extend: {}
