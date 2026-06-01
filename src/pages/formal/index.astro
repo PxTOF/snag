@@ -24,19 +24,6 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
       <span data-scroll-progress></span>
     </div>
 
-    <aside class="space-stage-rail" aria-label="Dossier sections">
-      <a href="#signal" data-stage-link="signal"><b>01</b><span>Signal</span></a>
-      <a href="#proof" data-stage-link="proof"><b>02</b><span>Proof</span></a>
-      <a href="#cases" data-stage-link="cases"><b>03</b><span>Cases</span></a>
-      <a href="#reels" data-stage-link="reels"><b>04</b><span>Reels</span></a>
-      <a href="#contact" data-stage-link="contact"><b>05</b><span>Contact</span></a>
-    </aside>
-
-    <div class="space-mission-readout" aria-hidden="true">
-      <span>scroll phase</span>
-      <b data-space-stage-name>Signal</b>
-    </div>
-
     <div class="space-preloader" aria-hidden="true">
       <div>
         <span>PV / dossier boot</span>
@@ -206,10 +193,7 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
   <script is:inline>
     const dossier = document.querySelector("[data-space-dossier]");
     const revealItems = document.querySelectorAll("[data-space-reveal]");
-    const panels = [...document.querySelectorAll("[data-space-panel]")];
-    const stageLinks = [...document.querySelectorAll("[data-stage-link]")];
     const progressBar = document.querySelector("[data-scroll-progress]");
-    const stageName = document.querySelector("[data-space-stage-name]");
 
     if (dossier) {
       window.addEventListener("pointermove", (event) => {
@@ -223,38 +207,12 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
     }
 
     let ticking = false;
-    const stageAliases = {
-      usefulness: "proof",
-      signals: "cases",
-    };
-
     const updateScrollUi = () => {
       ticking = false;
       const max = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
       const progress = Math.min(Math.max(window.scrollY / max, 0), 1);
       if (progressBar) progressBar.style.transform = `scaleX(${progress})`;
       if (dossier) dossier.style.setProperty("--scroll-progress", progress.toFixed(3));
-
-      let active = panels[0];
-      let smallestDistance = Infinity;
-      const target = window.innerHeight * 0.42;
-      panels.forEach((panel) => {
-        const box = panel.getBoundingClientRect();
-        const distance = Math.abs(box.top - target);
-        if (distance < smallestDistance) {
-          smallestDistance = distance;
-          active = panel;
-        }
-      });
-
-      if (!active) return;
-      const stage = active.dataset.spacePanel || "signal";
-      const linkedStage = stageAliases[stage] || stage;
-      if (dossier) dossier.dataset.activeStage = linkedStage;
-      if (stageName) stageName.textContent = active.dataset.stageTitle || linkedStage;
-      stageLinks.forEach((link) => {
-        link.classList.toggle("is-active", link.dataset.stageLink === linkedStage);
-      });
     };
 
     const requestScrollUi = () => {
