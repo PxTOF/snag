@@ -916,6 +916,645 @@ img {
   line-height: 1.7;
 }
 
+/* Formal dossier v3: editorial art direction */
+.formal-dossier {
+  --ink: #f8f2e8;
+  --paper: #f3eadb;
+  --carbon: #070707;
+  --signal: #ff3b30;
+  --acid: #b9ff66;
+  --blueprint: #6bdcff;
+  --display: "Bricolage Grotesque", Manrope, Inter, ui-sans-serif, system-ui, sans-serif;
+  --serif: "Instrument Serif", Georgia, serif;
+  --sans: Manrope, Inter, ui-sans-serif, system-ui, sans-serif;
+  isolation: isolate;
+  padding: 30px 5.6vw 96px 7.8vw;
+  color: var(--ink);
+  font-family: var(--sans);
+  background:
+    radial-gradient(circle at var(--spot-x) var(--spot-y), rgba(107, 220, 255, .22), transparent 22rem),
+    radial-gradient(circle at 18% 22%, rgba(255, 59, 48, .28), transparent 24rem),
+    radial-gradient(circle at 82% 8%, rgba(185, 255, 102, .16), transparent 20rem),
+    linear-gradient(120deg, rgba(255,255,255,.08), transparent 30%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0 1px, transparent 1px 12.5vw),
+    #050505;
+}
+
+.formal-dossier::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(110deg, transparent 0 21%, rgba(255,255,255,.08) 21% 21.2%, transparent 21.2% 64%, rgba(255,59,48,.2) 64% 64.25%, transparent 64.25%),
+    radial-gradient(circle at 50% 110%, rgba(255,255,255,.12), transparent 34rem);
+  mix-blend-mode: screen;
+  opacity: .78;
+}
+
+.formal-dossier::after {
+  content: "PV";
+  position: fixed;
+  right: -20px;
+  bottom: -88px;
+  z-index: 0;
+  color: rgba(255,255,255,.035);
+  font-family: var(--display);
+  font-size: 360px;
+  font-weight: 800;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.formal-dossier .dossier-atmosphere span {
+  border-color: rgba(248,242,232,.16);
+  background: rgba(248,242,232,.025);
+  backdrop-filter: blur(2px);
+}
+
+.formal-dossier .dossier-atmosphere::before {
+  background:
+    linear-gradient(118deg, transparent 0 39%, rgba(185,255,102,.14) 39% 39.18%, transparent 39.18% 100%),
+    linear-gradient(162deg, transparent 0 68%, rgba(107,220,255,.2) 68% 68.22%, transparent 68.22% 100%);
+}
+
+.dossier-spine {
+  position: fixed;
+  left: 18px;
+  top: 30px;
+  bottom: 30px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  writing-mode: vertical-rl;
+  border: 1px solid rgba(248,242,232,.18);
+  background: rgba(5,5,5,.38);
+  padding: 16px 8px;
+  color: rgba(248,242,232,.58);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  backdrop-filter: blur(16px);
+}
+
+.formal-dossier .dossier-spine {
+  position: fixed;
+}
+
+.dossier-spine b {
+  color: var(--acid);
+  font-weight: 800;
+}
+
+.formal-dossier .eyebrow {
+  color: var(--signal);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.formal-dossier h1,
+.formal-dossier h2,
+.formal-dossier h3,
+.formal-dossier .brand-lockup b {
+  font-family: var(--display);
+  letter-spacing: 0;
+}
+
+.formal-dossier .dossier-nav {
+  position: sticky;
+  top: 18px;
+  border-color: rgba(248,242,232,.2);
+  background: rgba(7,7,7,.68);
+  box-shadow: 0 28px 90px rgba(0,0,0,.38);
+  padding: 13px;
+}
+
+.formal-dossier .brand-lockup img {
+  width: 64px;
+  border: 1px solid var(--paper);
+  filter: saturate(.86) contrast(1.05);
+}
+
+.formal-dossier .brand-lockup b {
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.formal-dossier .brand-lockup small,
+.formal-dossier .contact-chips a,
+.formal-dossier .hero-lede,
+.formal-dossier .sticky-intro p:not(.eyebrow),
+.formal-dossier .case-card p,
+.formal-dossier .reel-tile p {
+  color: rgba(248,242,232,.66);
+}
+
+.formal-dossier .dossier-nav nav a,
+.formal-dossier .hero-actions a,
+.formal-dossier .contact-chips a,
+.formal-dossier .closing-cta a {
+  border-color: rgba(248,242,232,.26);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.formal-dossier .dossier-nav nav a:hover,
+.formal-dossier .hero-actions a:hover,
+.formal-dossier .contact-chips a:hover,
+.formal-dossier .closing-cta a:hover {
+  background: var(--acid);
+  color: #050505;
+}
+
+.formal-dossier .nav-cta {
+  background: var(--signal);
+  color: #fff;
+  box-shadow: 5px 5px 0 rgba(185,255,102,.28);
+}
+
+.formal-dossier .dossier-hero {
+  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 54px;
+  min-height: 650px;
+  align-items: center;
+  padding: 58px 0 52px;
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 34px;
+}
+
+.hero-meta span {
+  border: 1px solid rgba(248,242,232,.18);
+  background: rgba(248,242,232,.055);
+  padding: 8px 10px;
+  color: rgba(248,242,232,.66);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.formal-dossier .hero-copy h1 {
+  max-width: 1010px;
+  color: var(--ink);
+  font-size: 82px;
+  font-weight: 800;
+  line-height: .84;
+  text-shadow: none;
+}
+
+.formal-dossier .hero-copy h1 span,
+.formal-dossier .hero-copy h1 em {
+  display: block;
+}
+
+.formal-dossier .hero-copy h1 em {
+  max-width: 940px;
+  margin-top: 6px;
+  color: var(--paper);
+  font-family: var(--serif);
+  font-size: 94px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: .8;
+}
+
+.formal-dossier .hero-lede {
+  max-width: 720px;
+  margin-top: 28px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.65;
+}
+
+.formal-dossier .hero-actions {
+  margin-top: 28px;
+}
+
+.formal-dossier .hero-actions a:first-child {
+  background: var(--paper);
+  color: #050505;
+  box-shadow: 8px 8px 0 var(--signal);
+}
+
+.formal-dossier .hero-actions a:nth-child(2) {
+  background: rgba(107,220,255,.12);
+}
+
+.formal-dossier .hero-proof-rail {
+  max-width: 840px;
+  margin-top: 32px;
+  border-color: rgba(248,242,232,.22);
+}
+
+.formal-dossier .hero-proof-rail b,
+.formal-dossier .stat-strip b {
+  color: var(--acid);
+  font-family: var(--display);
+  font-weight: 800;
+}
+
+.formal-dossier .hero-proof-rail small {
+  color: rgba(248,242,232,.58);
+  letter-spacing: 0;
+}
+
+.formal-dossier .signal-card {
+  top: 126px;
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(248,242,232,.28);
+  background: var(--paper);
+  box-shadow: 18px 18px 0 var(--signal), -10px -10px 0 rgba(107,220,255,.16);
+  transform: rotate(-1deg);
+}
+
+.formal-dossier .signal-card:hover {
+  transform: rotate(.4deg) translateY(-8px);
+  box-shadow: 26px 26px 0 var(--signal), -14px -14px 0 rgba(107,220,255,.2);
+}
+
+.formal-dossier .signal-card img {
+  width: 100%;
+  max-height: 330px;
+  object-fit: cover;
+  border: 0;
+  border-bottom: 1px solid #111;
+}
+
+.formal-dossier .signal-card div {
+  padding: 24px;
+}
+
+.formal-dossier .signal-card h2 {
+  color: #070707;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: .95;
+}
+
+.formal-dossier .signal-card p:not(.eyebrow) {
+  color: rgba(7,7,7,.7);
+  font-size: 15px;
+}
+
+.dossier-marquee {
+  overflow: hidden;
+  border-top: 1px solid rgba(248,242,232,.16);
+  border-bottom: 1px solid rgba(248,242,232,.16);
+  margin: 10px 0 32px;
+  padding: 12px 0;
+}
+
+.dossier-marquee div {
+  display: flex;
+  width: max-content;
+  gap: 18px;
+  animation: marquee-pass 24s linear infinite;
+}
+
+.dossier-marquee span {
+  color: var(--paper);
+  font-family: var(--serif);
+  font-size: 36px;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.dossier-marquee span::after {
+  content: "/";
+  margin-left: 18px;
+  color: var(--signal);
+  font-family: var(--sans);
+  font-style: normal;
+}
+
+.formal-dossier .stat-strip {
+  gap: 0;
+  border: 1px solid rgba(248,242,232,.18);
+  background: rgba(248,242,232,.035);
+}
+
+.formal-dossier .stat-strip div {
+  border: 0;
+  border-right: 1px solid rgba(248,242,232,.14);
+  background: transparent;
+  padding: 28px;
+}
+
+.formal-dossier .stat-strip div:last-child {
+  border-right: 0;
+}
+
+.formal-dossier .stat-strip div:hover {
+  background: var(--paper);
+}
+
+.formal-dossier .stat-strip span {
+  color: rgba(248,242,232,.58);
+  font-weight: 700;
+}
+
+.formal-dossier .sticky-story {
+  grid-template-columns: minmax(280px, 390px) minmax(0, 1fr);
+  gap: 42px;
+  margin-top: 98px;
+}
+
+.formal-dossier .sticky-intro {
+  top: 128px;
+  padding-top: 12px;
+}
+
+.formal-dossier .sticky-intro h2 {
+  color: var(--paper);
+  font-size: 54px;
+  font-weight: 800;
+  line-height: .92;
+}
+
+.formal-dossier .sticky-panel {
+  top: 128px;
+  min-height: 440px;
+  border-color: rgba(248,242,232,.2);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.74), rgba(243,234,219,.96)),
+    var(--paper);
+  box-shadow: 0 34px 120px rgba(0,0,0,.42);
+  padding: 42px;
+  overflow: hidden;
+  opacity: .18;
+  transform: translateY(28px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+
+.formal-dossier .sticky-panel.is-visible,
+.formal-dossier .is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.formal-dossier .sticky-panel:nth-child(2) {
+  top: 148px;
+}
+
+.formal-dossier .sticky-panel:nth-child(3) {
+  top: 168px;
+}
+
+.formal-dossier .sticky-panel::after {
+  width: 180px;
+  height: 180px;
+  right: -42px;
+  bottom: -42px;
+  border-color: currentColor;
+  transform: rotate(18deg);
+}
+
+.formal-dossier .sticky-panel h2 {
+  color: #050505;
+  font-size: 62px;
+  font-weight: 800;
+  line-height: .88;
+}
+
+.formal-dossier .sticky-panel p:not(.eyebrow),
+.formal-dossier .sticky-panel li {
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.formal-dossier .panel-number {
+  margin-bottom: 36px;
+  color: rgba(7,7,7,.16);
+  font-family: var(--serif);
+  font-size: 96px;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.formal-dossier .panel-red {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(185,255,102,.28), transparent 18rem),
+    var(--signal);
+}
+
+.formal-dossier .panel-red h2 {
+  color: #fff;
+}
+
+.formal-dossier .panel-cream {
+  background:
+    radial-gradient(circle at 8% 12%, rgba(107,220,255,.22), transparent 16rem),
+    #efe4d0;
+}
+
+.formal-dossier [data-reveal] {
+  opacity: .18;
+  transform: translateY(36px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+
+.formal-dossier [data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.formal-dossier .case-section,
+.formal-dossier .feature-case,
+.formal-dossier .reel-section,
+.formal-dossier .closing-cta {
+  margin-top: 92px;
+}
+
+.formal-dossier .section-head {
+  align-items: start;
+  margin-bottom: 30px;
+}
+
+.formal-dossier .section-head h2,
+.formal-dossier .closing-cta h2 {
+  max-width: 860px;
+  color: var(--paper);
+  font-size: 72px;
+  font-weight: 800;
+  line-height: .88;
+}
+
+.formal-dossier .case-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(248,242,232,.2);
+  border: 1px solid rgba(248,242,232,.2);
+}
+
+.formal-dossier .case-card {
+  min-height: 330px;
+  border: 0;
+  background: rgba(7,7,7,.86);
+  padding: 26px;
+  overflow: hidden;
+}
+
+.formal-dossier .case-card:nth-child(1),
+.formal-dossier .case-card:nth-child(2) {
+  grid-column: span 2;
+  min-height: 380px;
+}
+
+.formal-dossier .case-card:nth-child(3) {
+  background: var(--paper);
+  color: #050505;
+}
+
+.formal-dossier .case-card:hover {
+  background: var(--acid);
+  color: #050505;
+  box-shadow: none;
+  transform: translateY(-10px);
+}
+
+.formal-dossier .case-card span,
+.formal-dossier .case-card small {
+  color: rgba(248,242,232,.58);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.formal-dossier .case-card small {
+  display: block;
+  margin-top: 8px;
+}
+
+.formal-dossier .case-card:nth-child(3) span,
+.formal-dossier .case-card:nth-child(3) small,
+.formal-dossier .case-card:nth-child(3) p,
+.formal-dossier .case-card:hover span,
+.formal-dossier .case-card:hover small,
+.formal-dossier .case-card:hover p {
+  color: rgba(5,5,5,.68);
+}
+
+.formal-dossier .case-card h3 {
+  margin-top: auto;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: .96;
+}
+
+.formal-dossier .case-card:nth-child(1) h3,
+.formal-dossier .case-card:nth-child(2) h3 {
+  font-size: 58px;
+}
+
+.formal-dossier .case-card b {
+  color: var(--signal);
+  font-family: var(--display);
+  font-size: 18px;
+}
+
+.formal-dossier .case-card:hover b {
+  color: #050505;
+}
+
+.formal-dossier .feature-case {
+  grid-template-columns: 390px 1fr;
+  border-color: rgba(248,242,232,.18);
+  padding: 34px 0;
+}
+
+.formal-dossier .feature-case h2 {
+  color: var(--paper);
+  font-size: 52px;
+  font-weight: 800;
+}
+
+.formal-dossier .feature-list a {
+  border-color: rgba(248,242,232,.18);
+  background: rgba(248,242,232,.045);
+  padding: 20px;
+}
+
+.formal-dossier .feature-list a:hover {
+  background: var(--paper);
+  transform: translateX(10px);
+}
+
+.formal-dossier .feature-list b {
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 26px;
+}
+
+.formal-dossier .feature-list a:hover b,
+.formal-dossier .feature-list a:hover span,
+.formal-dossier .feature-list a:hover small {
+  color: #050505;
+}
+
+.formal-dossier .reel-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(248,242,232,.18);
+  border: 1px solid rgba(248,242,232,.18);
+}
+
+.formal-dossier .reel-tile {
+  grid-column: span 2;
+  border: 0;
+  background: rgba(248,242,232,.055);
+}
+
+.formal-dossier .reel-tile:nth-child(1),
+.formal-dossier .reel-tile:nth-child(4) {
+  grid-column: span 3;
+}
+
+.formal-dossier .reel-tile:hover {
+  background: rgba(248,242,232,.1);
+  box-shadow: none;
+}
+
+.formal-dossier .reel-tile span,
+.formal-dossier .reel-tile a {
+  color: var(--acid);
+}
+
+.formal-dossier .reel-tile h3 {
+  color: var(--paper);
+  font-family: var(--display);
+  font-size: 28px;
+}
+
+.formal-dossier .closing-cta {
+  background:
+    radial-gradient(circle at 90% 20%, rgba(185,255,102,.28), transparent 18rem),
+    linear-gradient(135deg, rgba(255,255,255,.12), transparent 46%),
+    var(--signal);
+  box-shadow: 20px 20px 0 rgba(185,255,102,.24);
+}
+
+.formal-dossier .closing-cta .eyebrow,
+.formal-dossier .closing-cta h2 {
+  color: #fff;
+}
+
+.formal-dossier .closing-cta a {
+  background: rgba(5,5,5,.12);
+}
+
 .xp-page {
   overflow: hidden;
 }
@@ -1079,6 +1718,167 @@ img {
   .panel-number {
     margin-bottom: 28px;
     font-size: 42px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .formal-dossier {
+    padding-left: 5vw;
+  }
+
+  .dossier-spine {
+    display: none;
+  }
+
+  .formal-dossier .dossier-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .formal-dossier .signal-card {
+    position: relative;
+    top: auto;
+    max-width: 620px;
+  }
+
+  .formal-dossier .hero-copy h1 {
+    font-size: 76px;
+  }
+
+  .formal-dossier .hero-copy h1 em {
+    font-size: 88px;
+  }
+
+  .formal-dossier .case-grid,
+  .formal-dossier .reel-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .formal-dossier .case-card,
+  .formal-dossier .case-card:nth-child(1),
+  .formal-dossier .case-card:nth-child(2),
+  .formal-dossier .reel-tile,
+  .formal-dossier .reel-tile:nth-child(1),
+  .formal-dossier .reel-tile:nth-child(4) {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 980px) {
+  .formal-dossier .sticky-story,
+  .formal-dossier .feature-case {
+    grid-template-columns: 1fr;
+  }
+
+  .formal-dossier .sticky-panel,
+  .formal-dossier .sticky-panel:nth-child(2),
+  .formal-dossier .sticky-panel:nth-child(3),
+  .formal-dossier .sticky-intro {
+    position: relative;
+    top: auto;
+  }
+
+  .formal-dossier .section-head h2,
+  .formal-dossier .closing-cta h2 {
+    font-size: 54px;
+  }
+
+  .formal-dossier .sticky-panel h2 {
+    font-size: 46px;
+  }
+}
+
+@media (max-width: 640px) {
+  .formal-dossier {
+    padding: 18px 14px 58px;
+  }
+
+  .formal-dossier .dossier-nav {
+    position: relative;
+    top: auto;
+  }
+
+  .formal-dossier .brand-lockup img {
+    width: 54px;
+  }
+
+  .formal-dossier .brand-lockup b {
+    font-size: 22px;
+  }
+
+  .hero-meta {
+    margin-bottom: 24px;
+  }
+
+  .formal-dossier .hero-copy h1 {
+    font-size: 47px;
+    line-height: .9;
+  }
+
+  .formal-dossier .hero-copy h1 em {
+    font-size: 56px;
+    line-height: .84;
+  }
+
+  .formal-dossier .hero-lede {
+    font-size: 17px;
+  }
+
+  .formal-dossier .hero-proof-rail,
+  .formal-dossier .stat-strip,
+  .formal-dossier .case-grid,
+  .formal-dossier .feature-list,
+  .formal-dossier .reel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .formal-dossier .hero-proof-rail span,
+  .formal-dossier .stat-strip div {
+    border-right: 0;
+    border-bottom: 1px solid rgba(248,242,232,.14);
+  }
+
+  .formal-dossier .signal-card {
+    box-shadow: 10px 10px 0 var(--signal), -6px -6px 0 rgba(107,220,255,.16);
+  }
+
+  .formal-dossier .signal-card h2 {
+    font-size: 34px;
+  }
+
+  .dossier-marquee span {
+    font-size: 28px;
+  }
+
+  .formal-dossier .sticky-intro h2,
+  .formal-dossier .sticky-panel h2,
+  .formal-dossier .section-head h2,
+  .formal-dossier .feature-case h2,
+  .formal-dossier .closing-cta h2 {
+    font-size: 36px;
+    line-height: .94;
+  }
+
+  .formal-dossier .sticky-panel {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .formal-dossier .panel-number {
+    margin-bottom: 24px;
+    font-size: 64px;
+  }
+
+  .formal-dossier .case-card,
+  .formal-dossier .case-card:nth-child(1),
+  .formal-dossier .case-card:nth-child(2) {
+    min-height: 300px;
+  }
+
+  .formal-dossier .case-card h3,
+  .formal-dossier .case-card:nth-child(1) h3,
+  .formal-dossier .case-card:nth-child(2) h3 {
+    font-size: 36px;
   }
 }
 
