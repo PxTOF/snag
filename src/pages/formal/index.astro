@@ -50,11 +50,9 @@ const featuredCases = cases.slice(0, 4);
           <span>Available for sharp rooms</span>
         </div>
         <p class="eyebrow">Proof-led creative operator</p>
-        <h1>
-          <span class="hero-overline">I build the</span>
-          <span class="hero-mega">MESSY</span>
-          <span class="hero-mega hero-mega-red">MIDDLE</span>
-          <em>brand / creators / growth</em>
+        <h1 class="hero-title">
+          <span>Pushkar</span>
+          <span>Vashisht</span>
         </h1>
         <p class="hero-claim">{profile.headline}</p>
         <p class="hero-lede">{profile.subheadline}</p>
@@ -144,8 +142,9 @@ const featuredCases = cases.slice(0, 4);
         <h2>Proof that has a point of view.</h2>
       </div>
       <div class="case-grid">
-        {cases.map((item) => (
+        {cases.map((item, index) => (
           <a class="case-card" href={`/formal/cases/${item.id}`}>
+            <i>{String(index + 1).padStart(2, "0")}</i>
             <span>{item.year}</span>
             <small>{item.role}</small>
             <h3>{item.title}</h3>
