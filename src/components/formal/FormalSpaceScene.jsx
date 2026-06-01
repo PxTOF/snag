@@ -20,6 +20,10 @@ export default function FormalSpaceScene() {
     const group = new THREE.Group();
     scene.add(group);
 
+    const tunnel = new THREE.Group();
+    tunnel.position.z = -4;
+    scene.add(tunnel);
+
     const starGeometry = new THREE.BufferGeometry();
     const starCount = 900;
     const positions = new Float32Array(starCount * 3);
@@ -40,6 +44,29 @@ export default function FormalSpaceScene() {
       }),
     );
     scene.add(stars);
+
+    const grid = new THREE.GridHelper(18, 34, 0xff3434, 0x1d5f68);
+    grid.position.set(0, -3.35, -4.5);
+    grid.material.transparent = true;
+    grid.material.opacity = 0.24;
+    scene.add(grid);
+
+    const tunnelMaterial = new THREE.LineBasicMaterial({
+      color: 0x8ff7ff,
+      transparent: true,
+      opacity: 0.13,
+    });
+    for (let i = 0; i < 9; i += 1) {
+      const radius = 1.4 + i * 0.42;
+      const points = Array.from({ length: 7 }, (_, index) => {
+        const angle = (index / 6) * Math.PI * 2;
+        return new THREE.Vector3(Math.cos(angle) * radius, Math.sin(angle) * radius, -i * 0.7);
+      });
+      const geometry = new THREE.BufferGeometry().setFromPoints(points);
+      const loop = new THREE.Line(geometry, tunnelMaterial);
+      loop.rotation.z = i * 0.14;
+      tunnel.add(loop);
+    }
 
     const ringMaterial = new THREE.MeshBasicMaterial({
       color: 0x9cefff,
@@ -86,11 +113,19 @@ export default function FormalSpaceScene() {
     });
 
     const pointer = { x: 0, y: 0 };
+    let scrollTarget = 0;
+    let scrollProgress = 0;
     const onPointerMove = (event) => {
       pointer.x = (event.clientX / window.innerWidth - 0.5) * 2;
       pointer.y = (event.clientY / window.innerHeight - 0.5) * 2;
     };
+    const onScroll = () => {
+      const max = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+      scrollTarget = Math.min(Math.max(window.scrollY / max, 0), 1);
+    };
     window.addEventListener("pointermove", onPointerMove, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
 
     const resize = () => {
       const { clientWidth, clientHeight } = mount;
@@ -105,8 +140,16 @@ export default function FormalSpaceScene() {
     let raf = 0;
     const animate = () => {
       frame += 0.008;
+      scrollProgress += (scrollTarget - scrollProgress) * 0.045;
+      camera.position.z += (8.5 - scrollProgress * 1.8 - camera.position.z) * 0.025;
+      camera.position.y += (0.8 - scrollProgress * 1.55 - camera.position.y) * 0.025;
       group.rotation.x += (pointer.y * 0.08 - group.rotation.x) * 0.03;
       group.rotation.y += (pointer.x * 0.12 - group.rotation.y) * 0.03;
+      group.position.x += ((scrollProgress - 0.5) * -1.1 - group.position.x) * 0.025;
+      group.scale.setScalar(1 + scrollProgress * 0.22);
+      tunnel.rotation.z -= 0.0014 + scrollProgress * 0.0018;
+      tunnel.position.z = -4 + scrollProgress * 1.6;
+      grid.position.z = -4.5 + scrollProgress * 1.8;
       torus.rotation.z += 0.0018;
       torusTwo.rotation.z -= 0.0012;
       core.rotation.x += 0.003;
@@ -132,8 +175,17 @@ export default function FormalSpaceScene() {
       window.cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
       window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("scroll", onScroll);
       mount.removeChild(renderer.domElement);
       starGeometry.dispose();
+      tunnel.children.forEach((line) => line.geometry.dispose());
+      tunnelMaterial.dispose();
+      grid.geometry.dispose();
+      if (Array.isArray(grid.material)) {
+        grid.material.forEach((material) => material.dispose());
+      } else {
+        grid.material.dispose();
+      }
       ringMaterial.dispose();
       redMaterial.dispose();
       satelliteGeometry.dispose();

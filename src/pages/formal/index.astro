@@ -20,6 +20,23 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
   <main class="space-dossier" data-space-dossier>
     <FormalSpaceScene client:load />
 
+    <div class="space-progress" aria-hidden="true">
+      <span data-scroll-progress></span>
+    </div>
+
+    <aside class="space-stage-rail" aria-label="Dossier sections">
+      <a href="#signal" data-stage-link="signal"><b>01</b><span>Signal</span></a>
+      <a href="#proof" data-stage-link="proof"><b>02</b><span>Proof</span></a>
+      <a href="#cases" data-stage-link="cases"><b>03</b><span>Cases</span></a>
+      <a href="#reels" data-stage-link="reels"><b>04</b><span>Reels</span></a>
+      <a href="#contact" data-stage-link="contact"><b>05</b><span>Contact</span></a>
+    </aside>
+
+    <div class="space-mission-readout" aria-hidden="true">
+      <span>scroll phase</span>
+      <b data-space-stage-name>Signal</b>
+    </div>
+
     <div class="space-preloader" aria-hidden="true">
       <div>
         <span>PV / dossier boot</span>
@@ -39,12 +56,13 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
       <nav aria-label="Formal dossier navigation">
         <a href="#cases">Cases</a>
         <a href="#reels">Reels</a>
+        <a href="#contact">Contact</a>
         <a href="/xp">Fun XP</a>
         <a class="space-nav-cta" href={profile.cvUrl} download>Download CV</a>
       </nav>
     </header>
 
-    <section class="space-hero" aria-labelledby="formal-title">
+    <section id="signal" class="space-hero" aria-labelledby="formal-title" data-space-panel="signal" data-stage-title="Signal">
       <div class="space-hero-copy" data-space-reveal>
         <p class="space-kicker">Formal dossier / brand growth orbit</p>
         <h1 id="formal-title">{profile.headline}</h1>
@@ -69,7 +87,7 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
       </aside>
     </section>
 
-    <section class="space-proof-grid" aria-label="Proof stats">
+    <section id="proof" class="space-proof-grid" aria-label="Proof stats" data-space-panel="proof" data-stage-title="Proof">
       {profile.stats.map((stat, index) => (
         <article class="space-stat" data-space-reveal style={`--delay: ${index * 80}ms`}>
           <span>{String(index + 1).padStart(2, "0")}</span>
@@ -79,7 +97,7 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
       ))}
     </section>
 
-    <section class="space-orbit-story" aria-labelledby="useful-title">
+    <section class="space-orbit-story" aria-labelledby="useful-title" data-space-panel="usefulness" data-stage-title="Usefulness">
       <div class="space-sticky-copy" data-space-reveal>
         <p class="space-kicker">What he is useful for</p>
         <h2 id="useful-title">Not a deck-maker. Not a caption machine. A taste-led operator who can make growth look alive.</h2>
@@ -98,7 +116,7 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
       </div>
     </section>
 
-    <section id="cases" class="space-section case-section" aria-labelledby="cases-title">
+    <section id="cases" class="space-section case-section" aria-labelledby="cases-title" data-space-panel="cases" data-stage-title="Cases">
       <div class="space-section-head" data-space-reveal>
         <p class="space-kicker">Proof that has a point of view.</p>
         <h2 id="cases-title">Case files built like mission logs.</h2>
@@ -125,7 +143,7 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
       </div>
     </section>
 
-    <section class="space-shortlist" aria-labelledby="shortlist-title">
+    <section class="space-shortlist" aria-labelledby="shortlist-title" data-space-panel="signals" data-stage-title="Signal stack">
       <div data-space-reveal>
         <p class="space-kicker">Signal stack</p>
         <h2 id="shortlist-title">Why this dossier should stay in the tab.</h2>
@@ -141,7 +159,7 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
       </div>
     </section>
 
-    <section id="reels" class="space-section reel-section" aria-labelledby="reels-title">
+    <section id="reels" class="space-section reel-section" aria-labelledby="reels-title" data-space-panel="reels" data-stage-title="Reels">
       <div class="space-section-head" data-space-reveal>
         <p class="space-kicker">Embedded proof</p>
         <h2 id="reels-title">Direct work samples. No fake play layer.</h2>
@@ -171,7 +189,7 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
       </div>
     </section>
 
-    <section class="space-contact-band" aria-labelledby="contact-title" data-space-reveal>
+    <section id="contact" class="space-contact-band" aria-labelledby="contact-title" data-space-reveal data-space-panel="contact" data-stage-title="Contact">
       <div>
         <p class="space-kicker">Hiring channel</p>
         <h2 id="contact-title">Bring the operator into the room before the campaign gets polite.</h2>
@@ -188,6 +206,10 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
   <script is:inline>
     const dossier = document.querySelector("[data-space-dossier]");
     const revealItems = document.querySelectorAll("[data-space-reveal]");
+    const panels = [...document.querySelectorAll("[data-space-panel]")];
+    const stageLinks = [...document.querySelectorAll("[data-stage-link]")];
+    const progressBar = document.querySelector("[data-scroll-progress]");
+    const stageName = document.querySelector("[data-space-stage-name]");
 
     if (dossier) {
       window.addEventListener("pointermove", (event) => {
@@ -200,11 +222,57 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
       window.setTimeout(finishBoot, 1300);
     }
 
+    let ticking = false;
+    const stageAliases = {
+      usefulness: "proof",
+      signals: "cases",
+    };
+
+    const updateScrollUi = () => {
+      ticking = false;
+      const max = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+      const progress = Math.min(Math.max(window.scrollY / max, 0), 1);
+      if (progressBar) progressBar.style.transform = `scaleX(${progress})`;
+      if (dossier) dossier.style.setProperty("--scroll-progress", progress.toFixed(3));
+
+      let active = panels[0];
+      let smallestDistance = Infinity;
+      const target = window.innerHeight * 0.42;
+      panels.forEach((panel) => {
+        const box = panel.getBoundingClientRect();
+        const distance = Math.abs(box.top - target);
+        if (distance < smallestDistance) {
+          smallestDistance = distance;
+          active = panel;
+        }
+      });
+
+      if (!active) return;
+      const stage = active.dataset.spacePanel || "signal";
+      const linkedStage = stageAliases[stage] || stage;
+      if (dossier) dossier.dataset.activeStage = linkedStage;
+      if (stageName) stageName.textContent = active.dataset.stageTitle || linkedStage;
+      stageLinks.forEach((link) => {
+        link.classList.toggle("is-active", link.dataset.stageLink === linkedStage);
+      });
+    };
+
+    const requestScrollUi = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollUi);
+        ticking = true;
+      }
+    };
+
+    updateScrollUi();
+    window.addEventListener("scroll", requestScrollUi, { passive: true });
+    window.addEventListener("resize", requestScrollUi);
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) entry.target.classList.add("is-visible");
       });
-    }, { threshold: 0.16 });
+    }, { threshold: 0.18, rootMargin: "0px 0px -8% 0px" });
 
     revealItems.forEach((item) => observer.observe(item));
 
