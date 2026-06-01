@@ -41,15 +41,15 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
         </span>
       </a>
       <nav aria-label="Formal dossier navigation">
-        <a href="#cases">Cases</a>
-        <a href="#reels">Reels</a>
-        <a href="#contact">Contact</a>
+        <a href="#cases" data-nav-section>Cases</a>
+        <a href="#reels" data-nav-section>Reels</a>
+        <a href="#contact" data-nav-section>Contact</a>
         <a href="/xp">Fun XP</a>
         <a class="space-nav-cta" href={profile.cvUrl} download>Download CV</a>
       </nav>
     </header>
 
-    <section id="signal" class="space-hero" aria-labelledby="formal-title" data-space-panel="signal" data-stage-title="Signal">
+    <section id="signal" class="space-hero" aria-labelledby="formal-title" data-space-panel="signal">
       <div class="space-hero-copy" data-space-reveal>
         <p class="space-kicker">Formal dossier / brand growth orbit</p>
         <h1 id="formal-title">{profile.headline}</h1>
@@ -74,7 +74,7 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
       </aside>
     </section>
 
-    <section id="proof" class="space-proof-grid" aria-label="Proof stats" data-space-panel="proof" data-stage-title="Proof">
+    <section id="proof" class="space-proof-grid" aria-label="Proof stats" data-space-panel="proof">
       {profile.stats.map((stat, index) => (
         <article class="space-stat" data-space-reveal style={`--delay: ${index * 80}ms`}>
           <span>{String(index + 1).padStart(2, "0")}</span>
@@ -84,7 +84,7 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
       ))}
     </section>
 
-    <section class="space-orbit-story" aria-labelledby="useful-title" data-space-panel="usefulness" data-stage-title="Usefulness">
+    <section class="space-orbit-story" aria-labelledby="useful-title" data-space-panel="usefulness">
       <div class="space-sticky-copy" data-space-reveal>
         <p class="space-kicker">What he is useful for</p>
         <h2 id="useful-title">Not a deck-maker. Not a caption machine. A taste-led operator who can make growth look alive.</h2>
@@ -103,7 +103,7 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
       </div>
     </section>
 
-    <section id="cases" class="space-section case-section" aria-labelledby="cases-title" data-space-panel="cases" data-stage-title="Cases">
+    <section id="cases" class="space-section case-section" aria-labelledby="cases-title" data-space-panel="cases">
       <div class="space-section-head" data-space-reveal>
         <p class="space-kicker">Proof that has a point of view.</p>
         <h2 id="cases-title">Case files built like mission logs.</h2>
@@ -130,7 +130,7 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
       </div>
     </section>
 
-    <section class="space-shortlist" aria-labelledby="shortlist-title" data-space-panel="signals" data-stage-title="Signal stack">
+    <section class="space-shortlist" aria-labelledby="shortlist-title" data-space-panel="signals">
       <div data-space-reveal>
         <p class="space-kicker">Signal stack</p>
         <h2 id="shortlist-title">Why this dossier should stay in the tab.</h2>
@@ -146,7 +146,7 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
       </div>
     </section>
 
-    <section id="reels" class="space-section reel-section" aria-labelledby="reels-title" data-space-panel="reels" data-stage-title="Reels">
+    <section id="reels" class="space-section reel-section" aria-labelledby="reels-title" data-space-panel="reels">
       <div class="space-section-head" data-space-reveal>
         <p class="space-kicker">Embedded proof</p>
         <h2 id="reels-title">Direct work samples. No fake play layer.</h2>
@@ -176,7 +176,7 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
       </div>
     </section>
 
-    <section id="contact" class="space-contact-band" aria-labelledby="contact-title" data-space-reveal data-space-panel="contact" data-stage-title="Contact">
+    <section id="contact" class="space-contact-band" aria-labelledby="contact-title" data-space-reveal data-space-panel="contact">
       <div>
         <p class="space-kicker">Hiring channel</p>
         <h2 id="contact-title">Bring the operator into the room before the campaign gets polite.</h2>
@@ -194,6 +194,24 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
     const dossier = document.querySelector("[data-space-dossier]");
     const revealItems = document.querySelectorAll("[data-space-reveal]");
     const progressBar = document.querySelector("[data-scroll-progress]");
+    const navSectionLinks = [...document.querySelectorAll("[data-nav-section]")];
+    const navTargets = navSectionLinks
+      .map((link) => ({ link, target: document.querySelector(link.getAttribute("href")) }))
+      .filter(({ target }) => Boolean(target));
+    const setActiveNav = (activeLink) => {
+      navSectionLinks.forEach((link) => {
+        const isActive = link === activeLink;
+        link.classList.toggle("is-active", isActive);
+        if (isActive) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+      if (dossier) {
+        if (activeLink) dossier.dataset.activeStage = activeLink.getAttribute("href").slice(1);
+        else delete dossier.dataset.activeStage;
+      }
+    };
+    let pendingNavLink = null;
+    let pendingNavTimer = 0;
 
     if (dossier) {
       window.addEventListener("pointermove", (event) => {
@@ -213,6 +231,26 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
       const progress = Math.min(Math.max(window.scrollY / max, 0), 1);
       if (progressBar) progressBar.style.transform = `scaleX(${progress})`;
       if (dossier) dossier.style.setProperty("--scroll-progress", progress.toFixed(3));
+
+      const marker = Math.min(window.innerHeight * 0.32, 220);
+      if (pendingNavLink) {
+        const pendingTarget = document.querySelector(pendingNavLink.getAttribute("href"));
+        const pendingBox = pendingTarget?.getBoundingClientRect();
+        setActiveNav(pendingNavLink);
+        if (pendingBox && pendingBox.top <= marker && pendingBox.bottom > marker) {
+          pendingNavLink = null;
+          window.clearTimeout(pendingNavTimer);
+        }
+        return;
+      }
+
+      let activeLink = null;
+      navTargets.forEach(({ link, target }) => {
+        const box = target.getBoundingClientRect();
+        if (box.top <= marker && box.bottom > marker) activeLink = link;
+      });
+      if (activeLink) setActiveNav(activeLink);
+      else if (window.scrollY < 24) setActiveNav(null);
     };
 
     const requestScrollUi = () => {
@@ -225,6 +263,17 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
     updateScrollUi();
     window.addEventListener("scroll", requestScrollUi, { passive: true });
     window.addEventListener("resize", requestScrollUi);
+    navSectionLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        pendingNavLink = link;
+        window.clearTimeout(pendingNavTimer);
+        setActiveNav(link);
+        pendingNavTimer = window.setTimeout(() => {
+          pendingNavLink = null;
+          requestScrollUi();
+        }, 2400);
+      });
+    });
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
