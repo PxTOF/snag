@@ -12,6 +12,12 @@ const featuredCases = cases.slice(0, 4);
   description="An editorial hiring dossier for Pushkar Vashisht: brand systems, creator growth, content machines and proof-led operating."
 >
   <main class="dossier formal-dossier" data-dossier>
+    <div class="redline-field" aria-hidden="true">
+      <span>brand</span>
+      <span>creator</span>
+      <span>growth</span>
+      <span>proof</span>
+    </div>
     <div class="dossier-atmosphere" aria-hidden="true">
       <span></span>
       <span></span>
@@ -45,9 +51,12 @@ const featuredCases = cases.slice(0, 4);
         </div>
         <p class="eyebrow">Proof-led creative operator</p>
         <h1>
-          <span>I build the messy middle</span>
-          <em>between brand, creators and growth.</em>
+          <span class="hero-overline">I build the</span>
+          <span class="hero-mega">MESSY</span>
+          <span class="hero-mega hero-mega-red">MIDDLE</span>
+          <em>brand / creators / growth</em>
         </h1>
+        <p class="hero-claim">{profile.headline}</p>
         <p class="hero-lede">{profile.subheadline}</p>
         <div class="hero-actions">
           <a href="/contact">Hire / contact</a>
@@ -69,6 +78,7 @@ const featuredCases = cases.slice(0, 4);
         </div>
       </div>
       <aside class="signal-card">
+        <span class="signal-stamp">proof<br />inside</span>
         <img src={profile.profileImage} alt="Pushkar smiling in a postage-stamp styled portrait" />
         <div>
           <p class="eyebrow">Current signal</p>
