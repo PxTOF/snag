@@ -64,6 +64,14 @@ async function visibleText(page, text) {
   });
 }
 
+async function expectNoHorizontalOverflow(page, label) {
+  const sizes = await page.evaluate(() => ({
+    clientWidth: document.documentElement.clientWidth,
+    scrollWidth: document.documentElement.scrollWidth,
+  }));
+  expect(sizes.scrollWidth <= sizes.clientWidth + 1, `${label} has horizontal overflow: ${sizes.scrollWidth} > ${sizes.clientWidth}`);
+}
+
 async function goXP(page) {
   await page.goto(`${APP_URL}/xp`, { waitUntil: "domcontentloaded" });
   await page.getByRole("button", { name: /skip intro/i }).click();
@@ -128,6 +136,7 @@ await run("selector loads and links to both equal portfolio modes", async () => 
   await visibleText(page, "Same work, different reading mode.");
   await visibleText(page, "Formal Dossier");
   await visibleText(page, "Fun XP OS");
+  await expectNoHorizontalOverflow(page, "Selector desktop");
   expect(await page.locator('a[href="/formal"]').count() >= 1, "Selector missing formal link");
   expect(await page.locator('a[href="/xp"]').count() >= 1, "Selector missing XP link");
 });
@@ -138,8 +147,10 @@ await run("formal dossier renders HR-grade proof, contact utilities and direct e
   await visibleText(page, "Proof-led creative operator");
   await visibleText(page, "What he is useful for");
   await visibleText(page, "Proof that has a point of view.");
+  await visibleText(page, "Open case file");
   await visibleText(page, profile.email);
   await visibleText(page, "Download CV");
+  await expectNoHorizontalOverflow(page, "Formal desktop");
   for (const stat of profile.stats) await visibleText(page, stat.value);
   for (const item of cases.slice(0, 4)) await visibleText(page, item.title);
   const videos = page.locator(".reel-section iframe");
@@ -248,13 +259,19 @@ await run("XP paint, games, reels and do-not-touch interactions work", async () 
 
 await run("responsive formal and XP surfaces stay visible", async () => {
   await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(APP_URL, { waitUntil: "domcontentloaded" });
+  await visibleText(page, "Pushkar Vashisht");
+  await expectNoHorizontalOverflow(page, "Selector mobile");
   await page.goto(`${APP_URL}/formal`, { waitUntil: "domcontentloaded" });
   await visibleText(page, profile.headline);
+  await visibleText(page, "Open case file");
+  await expectNoHorizontalOverflow(page, "Formal mobile");
   await page.goto(`${APP_URL}/xp`, { waitUntil: "domcontentloaded" });
   await page.getByRole("button", { name: /skip intro/i }).click();
   await page.getByRole("button", { name: /Log on/i }).click();
   await page.locator(".xp-taskbar").waitFor({ state: "visible" });
   await windowByTitle(page, "Start Here - Guide");
+  await expectNoHorizontalOverflow(page, "XP mobile");
   await page.setViewportSize({ width: 1365, height: 768 });
 });
 
