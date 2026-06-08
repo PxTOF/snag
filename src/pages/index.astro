@@ -9,30 +9,34 @@ import profile from "../data/profile.json";
 >
   <main class="route-shell selector-shell">
     <section class="selector-hero">
-      <p class="eyebrow">Pick your route</p>
-      <h1>Same work. Two ways to read it.</h1>
+      <div>
+        <p class="eyebrow">Pick your route</p>
+        <h1>Pushkar Vashisht</h1>
+      </div>
       <p class="selector-copy">
-        HR gets the sharp dossier. Curious people get the XP machine. Both lead to the same proof:
-        brand worlds, creator campaigns and content systems built under pressure.
+        Choose the direct dossier or the playful XP portfolio. Same work, different reading mode.
       </p>
     </section>
 
     <section class="mode-grid" aria-label="Portfolio modes">
       <a class="mode-card mode-card-dark" href="/formal">
-        <span class="mode-icon">DD</span>
         <span class="mode-kicker">Formal Dossier</span>
-        <h2>Recruiter-grade proof, edited like a magazine.</h2>
-        <p>{profile.stats[0].value} creators, {profile.stats[1].value} activations, {profile.stats[2].value} startups, and case notes that explain the operating taste behind the numbers.</p>
-        <span class="mode-action">Open the dossier</span>
+        <h2>Proof, cases and contact in one clean pass.</h2>
+        <p>{profile.stats[0].value} creators · {profile.stats[1].value} activations · {profile.stats[2].value} startups</p>
+        <span class="mode-action">Open dossier</span>
       </a>
 
       <a class="mode-card mode-card-light" href="/xp">
-        <span class="mode-icon">XP</span>
         <span class="mode-kicker">Fun XP OS</span>
-        <h2>The same portfolio disguised as a desktop you can poke.</h2>
-        <p>Guide notes, case folders, reel player, paint, games, control panel, command prompt and one button with very clear consequences.</p>
-        <span class="mode-action">Boot the machine</span>
+        <h2>A browsable desktop version of the same portfolio.</h2>
+        <p>Cases, reels, contact tools and a few playful interactions.</p>
+        <span class="mode-action">Boot XP</span>
       </a>
+    </section>
+
+    <section class="selector-contact" aria-label="Direct contact">
+      <a href={`mailto:${profile.email}`}>{profile.email}</a>
+      <a href={`tel:${profile.phone}`}>{profile.phone}</a>
     </section>
   </main>
 </BaseLayout>

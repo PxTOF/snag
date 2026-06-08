@@ -124,7 +124,8 @@ await run("structured content files expose required portfolio fields", async () 
 
 await run("selector loads and links to both equal portfolio modes", async () => {
   await page.goto(APP_URL, { waitUntil: "domcontentloaded" });
-  await visibleText(page, "Same work. Two ways to read it.");
+  await visibleText(page, "Pushkar Vashisht");
+  await visibleText(page, "Same work, different reading mode.");
   await visibleText(page, "Formal Dossier");
   await visibleText(page, "Fun XP OS");
   expect(await page.locator('a[href="/formal"]').count() >= 1, "Selector missing formal link");
