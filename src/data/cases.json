@@ -1,163 +1,385 @@
 [
   {
-    "id": "house-of-ud",
-    "title": "House of UD",
-    "year": "2026 to now",
-    "role": "Brand Manager / Multi-brand Operator",
-    "metric": "3 brands operated",
-    "tags": ["Beauty", "Brand OS", "Shoots", "Creators"],
-    "summary": "Running Depano, Barber Syndicate and My Artist like a three-brand operating room.",
-    "problem": "Three beauty-adjacent brands needed public worlds, creator motion and content systems without waiting for a slow agency machine.",
+    "id": "worksbuddy",
+    "title": "WorksBuddy.ai",
+    "year": "Jun 2026 – Present",
+    "role": "Marketing Operations Specialist / Content Creator",
+    "metric": "2 creative editors coordinated",
+    "tags": [
+      "Marketing Operations",
+      "Creator Partnerships",
+      "Video Production",
+      "Content"
+    ],
+    "summary": "Coordinating video production, influencer collaborations, short-form content and publishing calendars across business priorities.",
+    "problem": "Marketing content needs more than ideas. Briefs, creators, editors, approvals and distribution must arrive on schedule and hold a consistent brand standard.",
     "moves": [
-      "Built brand identity, content direction and rollout rhythm across Depano, Barber Syndicate and My Artist.",
-      "Owned shoots, creator coordination and campaign surfaces so each brand could feel distinct but operationally connected.",
-      "Turned fuzzy product and service ideas into content people could understand quickly in a feed."
+      "Coordinate two graphic designer/video editors, production briefs, timelines, approvals and brand-quality checks.",
+      "Source and onboard influencers, prepare scripts and briefs, and maintain collaboration records and commercial details.",
+      "Govern influencer publishing calendars while creating content and supporting AI-assisted production processes."
     ],
     "outcomes": [
-      "Two brands built from zero into visible public-facing identities.",
-      "Three-brand operating cadence across shoots, creators, content and distribution.",
-      "A repeatable brand system that can keep producing without losing taste."
+      "Accountability for the coordination and timely delivery of video assets.",
+      "One workflow linking influencer sourcing, content production, approval and publishing.",
+      "Campaign review and creator-calendar governance are part of the production and publishing workflow."
     ],
-    "proof": "Verified from current CV/app data: three brands, two built from zero, active brand management role.",
-    "toneLine": "This is where the design brain becomes useful: one eye on culture, one eye on commerce, one eye on how it looks in a feed at 2 AM.",
-    "featuredMedia": ["barber", "myartist", "depano"]
+    "proof": "Operational scope includes two assigned designer/video editors, influencer briefs, creator publishing and content creation.",
+    "toneLine": "Good creative ideas need a reliable operating system.",
+    "featuredMedia": []
   },
   {
-    "id": "superprofile-cosmofeed",
-    "title": "SuperProfile x CosmoFeed",
-    "year": "2024 to 2025",
-    "role": "Content Marketing Lead",
-    "metric": "500+ paid activations",
-    "tags": ["Creator Economy", "Partnerships", "USA Play"],
-    "summary": "A creator-growth engine pretending to be a normal marketing role.",
-    "problem": "The business needed creator supply, paid activation volume, agency partnerships and market expansion to move together.",
+    "id": "house-of-ud",
+    "title": "House of UD",
+    "year": "Aug 2025 – Jun 2026",
+    "role": "Brand Manager / Multi-Brand Operator",
+    "metric": "3 brands · 2 built from zero",
+    "tags": [
+      "Brand Building",
+      "Beauty & Personal Care",
+      "Creative Direction",
+      "Creators"
+    ],
+    "summary": "Led brand direction and creative operations for Body Juices, Barber Syndicate and Depano. Built Body Juices and Barber Syndicate from scratch.",
+    "problem": "Three distinct consumer brands required individual positioning and recognizable content identities while sharing an efficient system for shoots, creators and production.",
     "moves": [
-      "Onboarded creators into a partner program built for repeatable activation.",
-      "Executed paid activations while building the agency partnership vertical.",
-      "Helped shape a USA-market play without losing the day-to-day content machine."
+      "Body Juices: developed positioning, visual identity, launch narrative and social rollout from zero.",
+      "Barber Syndicate: built launch direction, brand content, shoot plans and creator collaborations from scratch.",
+      "Depano: directed content themes, shoots, creator-led assets and publishing.",
+      "Managed cross-brand briefs and creative delivery without flattening each brand's voice."
     ],
     "outcomes": [
-      "100+ creators onboarded.",
-      "500+ paid activations executed.",
-      "Agency partnerships vertical and USA-market motion launched."
+      "Two distinct zero-to-one brand builds: Body Juices and Barber Syndicate.",
+      "Three-brand operating rhythm across positioning, content, shoots and creator collaboration.",
+      "Managed both brand-thinking and execution rather than separating strategy from delivery."
     ],
-    "proof": "Verified from current CV/app data: 100+ creators, 500+ activations, agency partnerships, USA play.",
-    "toneLine": "Most people make a calendar. I built a little factory where creators, offers and distribution kept colliding.",
-    "featuredMedia": []
+    "proof": "Body Juices and Barber Syndicate were built from zero; Depano was managed as a distinct existing brand. Related content examples appear below.",
+    "toneLine": "Three brand worlds. Two launched from zero. One operating discipline.",
+    "featuredMedia": [
+      "barber",
+      "depano"
+    ]
   },
   {
     "id": "burger-bae",
     "title": "Burger Bae",
-    "year": "2025",
-    "role": "Creator-led Streetwear Growth",
-    "metric": "30K to 3L/day",
-    "tags": ["Fashion", "Creators", "Revenue Jump"],
-    "summary": "Streetwear campaign with messy internet energy and a serious commercial outcome.",
-    "problem": "The brand had the raw material for attention but needed creator-led distribution that felt native, not like a polished ad pretending to be cool.",
+    "year": "Apr 2025 – Aug 2025 · Freelance",
+    "role": "Creator Marketing & Campaign Strategy (Freelance)",
+    "metric": "~380 creators · 300+ videos",
+    "tags": [
+      "Streetwear",
+      "Creator Marketing",
+      "Freelance",
+      "Campaigns"
+    ],
+    "summary": "Coordinated large-scale creator-led distribution for streetwear drops, with roughly 380 creator collaborations and 300+ short-form videos over three months.",
+    "problem": "The brand needed streetwear-native creator attention at enough volume and consistency to support product launches.",
     "moves": [
-      "Built creator-led campaign energy around the brand.",
-      "Pushed loud, platform-native content instead of sterile marketing.",
-      "Connected creator momentum to a clearer revenue story."
+      "Coordinated approximately 380 creator collaborations during a three-month campaign period.",
+      "Supported briefs, creator delivery and rollout of 300+ short-form videos.",
+      "Connected release timing and platform-native storytelling with wider product-drop priorities."
     ],
     "outcomes": [
-      "Moved from roughly 30K/day to 3L/day during campaign momentum.",
-      "Created a sharper creator-led streetwear signal.",
-      "Made the brand easier to talk about, share and remember."
+      "Scaled creator-led short-form production across multiple collaborations.",
+      "Brand-reported daily sales moved from approximately INR 30K to INR 3 lakh during the campaign period; this was a shared result, not solely attributable to creator marketing.",
+      "Built a repeatable creator distribution approach rather than a one-off viral push."
     ],
-    "proof": "Verified from current CV/app data: 30K/day to 3L/day campaign movement.",
-    "toneLine": "Burger Bae had the correct disease: it wanted to be loud. I helped it scream in the right rooms.",
-    "featuredMedia": ["burger"]
+    "proof": "Sales movement reflects the wider brand campaign period and is not attributed solely to the creator programme.",
+    "toneLine": "Make the brand culturally relevant, then build the distribution to keep it visible.",
+    "featuredMedia": [
+      "burger"
+    ]
   },
   {
-    "id": "seekhobecho-rawcast",
-    "title": "Seekhobecho / Rawcast",
-    "year": "2025",
-    "role": "Media Vertical Builder",
-    "metric": "0 to 1 media vertical",
-    "tags": ["Podcast", "Media", "Zero to One"],
-    "summary": "Built Rawcast as Seekhobecho's media vertical from zero.",
-    "problem": "The brand needed a media surface that could carry long-form trust instead of only short-form fragments.",
+    "id": "superprofile-cosmofeed",
+    "title": "CosmoFeed (SuperProfile)",
+    "year": "Jul 2024 – Apr 2025",
+    "role": "Content Marketing Lead / Creator Partnerships",
+    "metric": "100+ onboarded · 500+ activations",
+    "tags": [
+      "Creator Economy",
+      "Partnerships",
+      "Marketing Operations"
+    ],
+    "summary": "Onboarded over 100 creators and supported more than 500 paid activations, coordinating partnerships, briefs and campaign delivery.",
+    "problem": "A growing creator programme needed a repeatable process for acquisition, activation and agency relationships.",
     "moves": [
-      "Hosted and produced long-form podcast episodes.",
-      "Built the media vertical from scratch.",
-      "Turned conversations into recurring brand surface area."
+      "Onboarded 100+ creators into the partner programme.",
+      "Supported delivery of 500+ paid creator activations through outreach, campaign briefs and coordination.",
+      "Owned partner communication and helped develop agency partnerships and US-facing initiatives."
     ],
     "outcomes": [
-      "A 0-to-1 content vertical with a clear format.",
-      "Long-form proof of voice, taste and consistency.",
-      "A stronger bridge between brand narrative and audience trust."
+      "100+ creators personally onboarded and involvement in 500+ paid activations.",
+      "More repeatable partner workflows spanning sourcing, activation and communication.",
+      "Experience across campaign execution, agency relationships and international initiatives."
     ],
-    "proof": "Verified from current CV/app data and linked YouTube embed.",
-    "toneLine": "A podcast is not content. It is a room where a brand can stop sounding like a LinkedIn caption.",
-    "featuredMedia": ["rawcast"]
+    "proof": "100+ personally onboarded creators; involvement in 500+ paid activations across the broader programme.",
+    "toneLine": "Partnerships work when the operation behind them scales.",
+    "featuredMedia": []
   },
   {
-    "id": "baecave-radisson",
-    "title": "Baecave x Radisson",
-    "year": "2025",
-    "role": "Creator-room Curator",
-    "metric": "30-40 creators",
-    "tags": ["Event", "Creators", "Experience"],
-    "summary": "A creator room inside Radisson. Not a meetup. A contained social experiment.",
-    "problem": "The event needed more than attendance. It needed a room that creators would want to document, remember and distribute.",
+    "id": "codeshod-ventures",
+    "title": "Codeshod Ventures Pvt. Ltd.",
+    "year": "Dec 2023 – May 2024",
+    "role": "Business Development Associate",
+    "metric": "200+ leads",
+    "tags": [
+      "Business Development",
+      "Research",
+      "Partnerships"
+    ],
+    "summary": "Generated prospects, developed client proposals and supported partnership opportunities through market research.",
+    "problem": "Business development needed credible target research, lead generation and proposals that reflected client requirements.",
     "moves": [
-      "Curated a creator room with 30-40 creators.",
-      "Managed the vibe, people and output together.",
-      "Designed offline energy for online distribution."
+      "Generated 200+ leads and researched customer needs, markets and prospective partnerships.",
+      "Worked on proposals and pitch decks for 20+ clients with cross-functional teams.",
+      "Supported new-business engagement from research to client communication."
     ],
     "outcomes": [
-      "30-40 creators gathered in one branded environment.",
-      "Event energy converted into content surface area.",
-      "The experience felt social first, brand second, which is why it worked."
+      "Recognised as Best Employee for 100% target achievement.",
+      "Developed transferable commercial judgment and stakeholder-management experience."
     ],
-    "proof": "Verified from current CV/app data: Baecave x Radisson, 30-40 creators.",
-    "toneLine": "The best events feel slightly impossible even when every operational detail is handled.",
-    "featuredMedia": ["baecave"]
+    "proof": "Recognised for achieving the assigned target, alongside lead research and proposal work for more than 20 clients.",
+    "toneLine": "Commercial work is strongest when the research comes first.",
+    "featuredMedia": []
   },
   {
     "id": "investx",
-    "title": "InvestX / Chitkara Innovation Incubator",
-    "year": "2022 to 2023",
+    "title": "Chitkara Innovation Incubator / InvestX",
+    "year": "Nov 2022 – Dec 2023",
     "role": "Organising Head",
-    "metric": "20CR+ commitments",
-    "tags": ["Startups", "VCs", "Operations"],
-    "summary": "Capital ecosystem, startup rooms and a 30-person operating crew.",
-    "problem": "Startup rooms collapse when nobody owns the room, the people, the investor flow and the operating tempo together.",
+    "metric": "40+ startups · 30+ team",
+    "tags": [
+      "Startups",
+      "Operations",
+      "Investor Relations"
+    ],
+    "summary": "Supported startup programming and organised InvestX, working across founders, investor stakeholders and a large operations team.",
+    "problem": "Accelerator programmes and investor events require coordination of founders, teams, speakers and capital ecosystem stakeholders.",
     "moves": [
-      "Led InvestX operations and coordinated a 30-person team.",
-      "Supported 40+ early-stage startups.",
-      "Worked with 10+ VCs and capital-room stakeholders."
+      "Supported 40+ early-stage startups with access to resources and industry experts.",
+      "Led a 30+ member team across accelerator initiatives and InvestX operations.",
+      "Coordinated workshops, stakeholder engagements and programming with 10+ venture capitalists."
     ],
     "outcomes": [
-      "20CR+ in investor commitments.",
-      "40+ startups supported.",
-      "A working operating layer around founders, investors and event execution."
+      "Delivered operational support for multi-stakeholder founder and investor programming.",
+      "InvestX reported INR 20 crore+ in investor commitments; this is an event outcome, not personally raised capital."
     ],
-    "proof": "Verified from current CV/app data: 20CR+, 40+ startups, 30-person team, 10+ VCs.",
-    "toneLine": "Nobody knows what is happening, but somebody still has to run the room. I became that somebody.",
+    "proof": "Investor commitments were reported at the event level, rather than funds personally raised.",
+    "toneLine": "Strong operations give ambitious ideas a room to grow.",
     "featuredMedia": []
   },
   {
     "id": "tongues-on-fire",
     "title": "Tongues on Fire",
-    "year": "2021 to 2022",
-    "role": "Founder / Community Builder",
+    "year": "Feb 2021 – Nov 2022",
+    "role": "Founder & CEO",
     "metric": "120+ members",
-    "tags": ["Community", "Events", "19-year-old founder"],
-    "summary": "A community built before permission to be impressive.",
-    "problem": "Before credentials, the only way to prove taste and leadership was to build a room people kept returning to.",
+    "tags": [
+      "Community",
+      "Leadership",
+      "Events"
+    ],
+    "summary": "Founded and operated a community programme with recurring sessions, events, a core team and interns.",
+    "problem": "A new community needed a reason to return, programming that could scale and clear ownership across team and event operations.",
     "moves": [
-      "Built a 120+ member community.",
-      "Managed a team of 5 and 20+ interns.",
-      "Ran sessions, events and national festival participation."
+      "Built a 120+ member community, managed a five-person core team and 20+ interns.",
+      "Hosted 300+ sessions and delivered seven events.",
+      "Produced six podcast episodes while building repeatable community operations."
     ],
     "outcomes": [
-      "300+ sessions.",
-      "7 events and 2 national festivals.",
-      "Early proof of momentum, team leadership and community taste."
+      "Early founder-level ownership of programming, community growth and people operations.",
+      "Created a sustainable cadence of sessions, events and content."
     ],
-    "proof": "Verified from current CV/app data: 120+ members, 20+ interns, 300+ sessions, 7 events, 2 national festivals.",
-    "toneLine": "Before credentials, I had momentum. Momentum is better.",
+    "proof": "Community scale and activity included 120+ members, 300+ sessions and seven events.",
+    "toneLine": "Before running brand programmes, I learned how to build communities.",
     "featuredMedia": []
+  },
+  {
+    "id": "seekhobecho-rawcast",
+    "title": "Seekhobecho / Rawcast",
+    "year": "Selected project · 2025",
+    "role": "Media Vertical Builder / Host",
+    "metric": "0 → 1 media vertical",
+    "tags": [
+      "Podcast",
+      "Media",
+      "Creative Production"
+    ],
+    "summary": "Created Rawcast as Seekhobecho's podcast and media vertical from scratch, building its show format and short-form distribution.",
+    "problem": "The brand needed its own long-form voice and a way to turn deeper conversations into repeatable audience-facing content.",
+    "moves": [
+      "Developed the Rawcast concept, interview format and episode structure from zero.",
+      "Hosted and produced long-form conversations.",
+      "Created short-form cutdowns to expand each episode's reach beyond the full-length upload."
+    ],
+    "outcomes": [
+      "Launched a new media format instead of relying exclusively on product content.",
+      "Established a repeatable production model spanning long- and short-form content."
+    ],
+    "proof": "A linked long-form episode shows the show format and the on-camera hosting and production work.",
+    "toneLine": "A memorable media format is a product in its own right.",
+    "featuredMedia": [
+      "rawcast"
+    ]
+  },
+  {
+    "id": "baecave-radisson",
+    "title": "Baecave x Radisson",
+    "year": "Selected project · 2025",
+    "role": "Creator Experience / Community Activation",
+    "metric": "30–40 creators",
+    "tags": [
+      "Creator Events",
+      "Community",
+      "Experiential Marketing"
+    ],
+    "summary": "Curated a branded creator experience with 30–40 participants and social-first moments beyond the event itself.",
+    "problem": "An event needed to produce more than attendance: it needed shareable moments and a coordinated creator experience.",
+    "moves": [
+      "Curated and coordinated a group of 30–40 creators.",
+      "Planned participation and on-site content opportunities.",
+      "Designed social-first experiences that could continue online after the event."
+    ],
+    "outcomes": [
+      "Built an event environment designed for organic creator publishing.",
+      "Connected offline community activation with content distribution."
+    ],
+    "proof": "An estimated 30–40 creators joined the experience; the linked content offers a look at the event.",
+    "toneLine": "A worthwhile event keeps travelling after everyone leaves.",
+    "featuredMedia": [
+      "baecave"
+    ]
+  },
+  {
+    "id": "prismoline",
+    "title": "Prismoline",
+    "year": "Selected brand work",
+    "role": "Road Safety / Brand & Social",
+    "metric": "Social identity",
+    "tags": [
+      "Brand Identity",
+      "Social Content",
+      "Road Safety"
+    ],
+    "summary": "Translated a road-safety brand identity into a consistent, recognizable social presence.",
+    "problem": "The category needed clarity and memorability without losing the practical importance of its subject.",
+    "moves": [
+      "Developed brand-aligned social concepts and a repeatable publishing approach.",
+      "Translated visual identity into content formats recognizable across posts.",
+      "Worked toward coherent messages across the social feed."
+    ],
+    "outcomes": [
+      "A consistent direction for regular social communication.",
+      "Brand/category-specific content rather than generic templates."
+    ],
+    "proof": "The work focused on building a recognizable, repeatable social identity for a road-safety category.",
+    "toneLine": "Clarity can be creative.",
+    "featuredMedia": []
+  },
+  {
+    "id": "pevlyo",
+    "title": "Pevlyo",
+    "year": "Selected brand work",
+    "role": "Spice Brand / Social & Growth",
+    "metric": "Creator-led formats",
+    "tags": [
+      "FMCG",
+      "Social Content",
+      "Creators"
+    ],
+    "summary": "Developed creator-led ideas and recurring social content for a consumer spice brand.",
+    "problem": "A daily-use product needed formats that could earn attention and recognition in busy feeds.",
+    "moves": [
+      "Created social content concepts rooted in the brand's category.",
+      "Developed creator-led formats and recurring content directions.",
+      "Focused on a consistent brand presence rather than isolated posts."
+    ],
+    "outcomes": [
+      "A repeatable social-content framework.",
+      "A clearer format-led approach to product storytelling."
+    ],
+    "proof": "The creative focus was on repeatable creator formats and a coherent social presence for a consumer product.",
+    "toneLine": "Make an everyday product recognizable in the feed.",
+    "featuredMedia": []
+  },
+  {
+    "id": "saar",
+    "title": "Saar",
+    "year": "Selected brand work",
+    "role": "Luxury Ethnic Fashion / Creative Content",
+    "metric": "Reels & concepts",
+    "tags": [
+      "Luxury Fashion",
+      "Reels",
+      "Creative Strategy"
+    ],
+    "summary": "Produced social concepts and reels for a luxury ethnic-fashion brand with an emphasis on visual distinction.",
+    "problem": "Premium ethnic fashion demands creative that respects craftsmanship and feels native to social platforms.",
+    "moves": [
+      "Developed visual concepts and short-form reels.",
+      "Designed storytelling intended to earn saves and shares through composition and cultural relevance.",
+      "Maintained a premium visual voice in social-first creative."
+    ],
+    "outcomes": [
+      "Brand-appropriate creative concepts with a clear social purpose.",
+      "Short-form content direction adapted to a premium fashion audience."
+    ],
+    "proof": "Selected creative direction focused on premium visual storytelling and short-form discovery.",
+    "toneLine": "Premium storytelling still needs to feel alive.",
+    "featuredMedia": []
+  },
+  {
+    "id": "ratnalaya-jewellers",
+    "title": "Ratnalaya Jewellers",
+    "year": "Selected brand work",
+    "role": "Jewellery / Brand Storytelling",
+    "metric": "Heritage-led social",
+    "tags": [
+      "Jewellery",
+      "Heritage",
+      "Brand Content"
+    ],
+    "summary": "Reframed heritage jewellery storytelling into contemporary social content while retaining the brand's character.",
+    "problem": "A heritage jewellery identity needed to look current without losing its history and trust cues.",
+    "moves": [
+      "Developed social-first visual storytelling concepts.",
+      "Adapted existing brand character into content formats for modern feeds.",
+      "Balanced heritage positioning with a fresher creative language."
+    ],
+    "outcomes": [
+      "A more contemporary content direction grounded in heritage.",
+      "Storytelling adaptable across recurring jewellery content."
+    ],
+    "proof": "The creative work balanced a heritage brand's established identity with newer social content formats.",
+    "toneLine": "Modernise the expression, not the heritage.",
+    "featuredMedia": []
+  },
+  {
+    "id": "my-artist",
+    "title": "My Artist",
+    "year": "Selected brand work",
+    "role": "Press-On Nails / Brand Identity",
+    "metric": "Identity & launch",
+    "tags": [
+      "Beauty",
+      "Brand Identity",
+      "Launch"
+    ],
+    "summary": "Developed identity and launch direction for a press-on nail brand as independent selected work.",
+    "problem": "The brand needed a coherent visual and verbal identity before growing its content system.",
+    "moves": [
+      "Developed the early identity and launch direction.",
+      "Explored recognizable visual and verbal codes for the brand.",
+      "Built content directions that could extend beyond launch."
+    ],
+    "outcomes": [
+      "A consistent identity system designed for recognition and future scale.",
+      "Kept distinctly separate from the House of UD employer brand portfolio."
+    ],
+    "proof": "This is standalone selected brand-identity work, with a related reel included below.",
+    "toneLine": "Build the identity before asking the feed to remember it.",
+    "featuredMedia": [
+      "myartist"
+    ]
   }
 ]

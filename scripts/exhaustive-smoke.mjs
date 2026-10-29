@@ -149,7 +149,7 @@ await run("formal dossier renders HR-grade proof, contact utilities and direct e
   await visibleText(page, "Proof that has a point of view.");
   await visibleText(page, "Open case file");
   await visibleText(page, profile.email);
-  await visibleText(page, "Download CV");
+  await visibleText(page, "View / Print CV");
   await expectNoHorizontalOverflow(page, "Formal desktop");
   for (const stat of profile.stats) await visibleText(page, stat.value);
   for (const item of cases.slice(0, 4)) await visibleText(page, item.title);

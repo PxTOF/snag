@@ -17,7 +17,7 @@ import profile from "../data/profile.json";
         <a href={`mailto:${profile.email}`}>{profile.email}</a>
         <a href={`tel:${profile.phone.replaceAll(" ", "")}`}>{profile.phone}</a>
         <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href={profile.cvUrl} download>Download CV</a>
+        <a href={profile.cvUrl}>View / Print CV</a>
       </div>
     </section>
   </main>
