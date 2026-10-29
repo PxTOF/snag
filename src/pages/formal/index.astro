@@ -41,11 +41,12 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
         </span>
       </a>
       <nav aria-label="Formal dossier navigation">
+        <a href="#experience" data-nav-section>Experience</a>
         <a href="#cases" data-nav-section>Cases</a>
         <a href="#reels" data-nav-section>Reels</a>
         <a href="#contact" data-nav-section>Contact</a>
         <a href="/xp">Fun XP</a>
-        <a class="space-nav-cta" href={profile.cvUrl} download>Download CV</a>
+        <a class="space-nav-cta" href={profile.cvUrl}>View / Print CV</a>
       </nav>
     </header>
 
@@ -87,7 +88,7 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
     <section class="space-orbit-story" aria-labelledby="useful-title" data-space-panel="usefulness">
       <div class="space-sticky-copy" data-space-reveal>
         <p class="space-kicker">What he is useful for</p>
-        <h2 id="useful-title">Not a deck-maker. Not a caption machine. A taste-led operator who can make growth look alive.</h2>
+        <h2 id="useful-title">Brand thinking with the operating discipline to get work shipped.</h2>
       </div>
       <div class="space-use-list">
         {profile.fit.map((fit, index) => (
@@ -98,8 +99,25 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
         ))}
         <article class="space-use-card space-use-card-wide" data-space-reveal>
           <span>field note</span>
-          <p>Best used when the brief is still messy, the audience has taste, and the work has to become visible fast without turning fake.</p>
+          <p>Useful when positioning, creator relationships, production and publishing need one accountable point of coordination.</p>
         </article>
+      </div>
+    </section>
+
+    <section id="experience" class="space-section" aria-labelledby="experience-title" data-space-panel="experience">
+      <div class="space-section-head" data-space-reveal>
+        <p class="space-kicker">Career timeline</p>
+        <h2 id="experience-title">Where the work happened.</h2>
+        <p>Full-time roles, freelance work and selected independent projects are presented separately.</p>
+      </div>
+      <div class="space-signal-grid">
+        {cases.filter((item) => ["worksbuddy", "house-of-ud", "burger-bae", "superprofile-cosmofeed", "codeshod-ventures", "investx", "tongues-on-fire"].includes(item.id)).map((item) => (
+          <a class="space-signal" href={`/formal/cases/${item.id}`} data-space-reveal>
+            <span>{item.year}</span>
+            <b>{item.title}</b>
+            <small>{item.role}</small>
+          </a>
+        ))}
       </div>
     </section>
 
@@ -180,13 +198,13 @@ const pitchCopy = `${profile.name}: ${profile.pitch}`;
     <section id="contact" class="space-contact-band" aria-labelledby="contact-title" data-space-reveal data-space-panel="contact">
       <div>
         <p class="space-kicker">Hiring channel</p>
-        <h2 id="contact-title">Bring the operator into the room before the campaign gets polite.</h2>
+        <h2 id="contact-title">Build the next brand chapter with someone who can own the work.</h2>
       </div>
       <div class="space-contact-actions">
         <a href={mailHref}>{profile.email}</a>
         <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
         <a href={profile.instagram} target="_blank" rel="noreferrer">Instagram</a>
-        <a href={profile.cvUrl} download>Download CV</a>
+        <a href={profile.cvUrl}>View / Print CV</a>
       </div>
     </section>
   </main>

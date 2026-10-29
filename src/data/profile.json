@@ -1,23 +1,35 @@
 {
   "name": "Pushkar Vashisht",
-  "headline": "I build the messy middle between brand, creators and growth.",
-  "subheadline": "Creative operator for internet-native brands, creator campaigns and content systems where taste, speed and proof have to work in the same room.",
-  "email": "pushkarsvashisht@gmail.com",
+  "headline": "I build brands, creator programmes and the systems that deliver them.",
+  "subheadline": "Brand strategy, multi-brand launches, creator partnerships and content operations, from first brief to publishing and performance.",
+  "email": "sharma.pushkar2003@gmail.com",
   "phone": "9729317565",
   "linkedin": "https://www.linkedin.com/in/pushkarvashisht",
   "instagram": "https://www.instagram.com/ifeelperi/",
   "cvUrl": "/Pushkar_Vashisht_CV_Updated.html",
   "profileImage": "/pushkar-profile.jpg",
-  "pitch": "Pushkar builds brand worlds, creator rooms and content machines that make messy attention measurable enough to hire.",
+  "pitch": "Brand and creator-marketing operator: 100+ creators onboarded, 500+ paid activations supported, and hands-on brand launches and content operations.",
   "stats": [
-    { "value": "100+", "label": "creators onboarded" },
-    { "value": "500+", "label": "paid activations executed" },
-    { "value": "40+", "label": "startups supported" },
-    { "value": "20CR+", "label": "capital ecosystem rooms" }
+    {
+      "value": "100+",
+      "label": "creators onboarded"
+    },
+    {
+      "value": "500+",
+      "label": "paid creator activations supported"
+    },
+    {
+      "value": "3",
+      "label": "consumer brands operated"
+    },
+    {
+      "value": "40+",
+      "label": "startups supported"
+    }
   ],
   "fit": [
-    "Brand manager and creator growth roles",
-    "Founder-led marketing teams that need taste plus execution",
-    "Beauty, fashion, media and internet-native consumer brands"
+    "Brand management and creative strategy for consumer brands",
+    "Influencer marketing, creator partnerships and campaigns",
+    "Content leadership, production coordination and publishing operations"
   ]
 }
